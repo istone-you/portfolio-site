@@ -33,10 +33,13 @@ const qiita = ({
     <div className="flex items-center justify-center">
       <div>
         <Back />
-        <div className="mx-56 my-28">
+        <div className="my-20">
           <h1 className="text-5xl mb-12 flex items-center justify-center">
             Qiita
           </h1>
+          <p className="flex items-center justify-center">
+            アカウントは<a href={accountUrl.url}>こちら</a>
+          </p>
           {articleData.map((articleData) => (
             <QiitaArticle
               title={articleData.title}

@@ -9,7 +9,6 @@ interface TitleData {
 }
 
 const Title = (props: TitleData) => {
-  console.log(props);
   return (
     <>
       <div className=" flex items-center justify-center">

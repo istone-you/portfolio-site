@@ -29,7 +29,7 @@ const career = ({ contents }: CarrerDatas) => {
     <div className="flex items-center justify-center">
       <div>
         <Back />
-        <div className="mx-56 my-28">
+        <div className="my-20">
           <h1 className="text-5xl mb-12 flex items-center justify-center">
             Career
           </h1>

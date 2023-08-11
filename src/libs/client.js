@@ -15,7 +15,7 @@ export const skillClient = createClient({
   apiKey: process.env.SKILL_API_KEY,
 });
 
-export const githublient = createClient({
+export const githubClient = createClient({
   serviceDomain: "istoneyou-github",
   apiKey: process.env.GITHUB_API_KEY,
 });

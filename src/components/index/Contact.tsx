@@ -6,7 +6,6 @@ interface ContactData {
 }
 
 const Contact = (props: ContactData) => {
-  console.log(props);
   return (
     <div className="mt-12 flex items-center justify-center">
       <p className="">

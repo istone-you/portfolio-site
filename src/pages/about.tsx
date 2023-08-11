@@ -1,27 +1,33 @@
 import Image from "next/image";
 import { indexClient } from "../libs/client";
 import Back from "@/components/common/Back";
+import Contact from "@/components/index/Contact";
 
-interface AboutData {
-  aboutData: string;
+interface IndexData {
+  thumbnail: {
+    url: string;
+  };
+  about: string;
+  email: string;
+  twitter: string;
 }
 
-interface ThumbnailImage {
-  thumbnailImage: string;
+interface IndexDataProps {
+  indexData: IndexData;
 }
 
-const about = ({ aboutData, thumbnailImage }: AboutData & ThumbnailImage) => {
+const about = ({ indexData }: IndexDataProps) => {
   return (
     <div className="flex items-center justify-center">
       <div>
         <Back />
-        <div className="mx-64 my-28">
-          <h1 className="text-5xl mb-6 flex items-center justify-center">
+        <div className="my-20">
+          <h1 className="text-5xl mb-2 flex items-center justify-center">
             About
           </h1>
           <div className="flex items-center justify-center">
             <Image
-              src={thumbnailImage}
+              src={indexData.thumbnail.url}
               alt="thumbnail"
               width={100}
               height={100}
@@ -34,10 +40,11 @@ const about = ({ aboutData, thumbnailImage }: AboutData & ThumbnailImage) => {
           <div
             className="prose"
             dangerouslySetInnerHTML={{
-              __html: `${aboutData}`,
+              __html: `${indexData.about}`,
             }}
           />
         </div>
+        <Contact email={indexData.email} twitter={indexData.twitter} />
       </div>
     </div>
   );
@@ -50,8 +57,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      aboutData: indexData.about,
-      thumbnailImage: indexData.thumbnail.url,
+      indexData,
     },
   };
 };

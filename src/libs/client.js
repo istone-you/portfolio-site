@@ -10,6 +10,16 @@ export const careerClient = createClient({
   apiKey: process.env.CAREER_API_KEY,
 });
 
+export const skillClient = createClient({
+  serviceDomain: "istoneyou-skill",
+  apiKey: process.env.SKILL_API_KEY,
+});
+
+export const githublient = createClient({
+  serviceDomain: "istoneyou-github",
+  apiKey: process.env.GITHUB_API_KEY,
+});
+
 export const qiitaClient = createClient({
   serviceDomain: "istoneyou-qiita",
   apiKey: process.env.QITA_API_KEY,

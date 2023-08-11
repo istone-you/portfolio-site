@@ -1,27 +1,80 @@
+/* globals.css */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
+@layer base {
+  html body {
+    line-height: 1.6;
+    color: #333;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+  h1 {
+    @apply text-4xl font-bold mb-4;
+  }
+
+  h2 {
+    @apply text-2xl font-semibold mb-3;
+  }
+
+  p {
+    @apply text-base leading-7 mb-4;
+  }
+
+  a {
+    @apply text-blue-500 no-underline hover:underline font-bold;
+  }
+
+  li {
+    @apply list-disc ml-4;
+  }
+
+  code {
+    @apply bg-gray-100 p-1 rounded;
+  }
+
+  .card-shadow {
+    box-shadow: 15px 15px 0px 0px black;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+  /* Add any custom component styles here */
+}
+
+@layer utilities {
+  /* Add any custom utility styles here */
+}
+
+@media (max-width: 768px) {
+  @layer base {
+    html {
+      @apply text-lg;
+    }
+
+    h1 {
+      @apply text-2xl;
+    }
+
+    h2 {
+      @apply text-xl;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  @layer base {
+    html {
+      @apply text-base;
+    }
+
+    h1 {
+      @apply text-xl;
+    }
+
+    h2 {
+      @apply text-lg;
+    }
+  }
 }

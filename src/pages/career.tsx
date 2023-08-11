@@ -1,4 +1,5 @@
 import { careerClient } from "../libs/client";
+import Back from "@/components/common/Back";
 import CareerContent from "@/components/career/CareerContent";
 
 interface Work {
@@ -26,13 +27,16 @@ interface CarrerDatas {
 const career = ({ contents }: CarrerDatas) => {
   return (
     <div className="flex items-center justify-center">
-      <div className="mx-64 my-28">
-        <h1 className="text-5xl mb-12 flex items-center justify-center">
-          Career
-        </h1>
-        {contents.map((content) => (
-          <CareerContent content={content} key={content.id} />
-        ))}
+      <div>
+        <Back />
+        <div className="mx-56 my-28">
+          <h1 className="text-5xl mb-12 flex items-center justify-center">
+            Career
+          </h1>
+          {contents.map((content) => (
+            <CareerContent content={content} key={content.id} />
+          ))}
+        </div>
       </div>
     </div>
   );

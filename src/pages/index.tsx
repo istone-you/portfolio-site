@@ -44,7 +44,7 @@ export default function Home({
             thanks={indexData.thanks}
             thumbnail={indexData.thumbnail}
           />
-          <div className="mx-80 flex flex-wrap tems-center justify-center">
+          <div className="lg:mx-24 xl:mx-72 flex flex-wrap tems-center justify-center">
             {pagesData.map((pagesData) => (
               <Card
                 path={pagesData.path}

@@ -1,4 +1,5 @@
 import { qiitaClient } from "../libs/client";
+import Back from "@/components/common/Back";
 import QiitaArticle from "@/components/qiita/QiitaArticle";
 
 interface AccountData {
@@ -13,6 +14,9 @@ interface ArticleData {
   id: string;
   title: string;
   detail: string;
+  image: {
+    url: string;
+  };
   url: string;
   comment: number | null;
 }
@@ -27,19 +31,23 @@ const qiita = ({
 }: AccountDataProps & ArticleDataProps) => {
   return (
     <div className="flex items-center justify-center">
-      <div className="mx-64 my-28">
-        <h1 className="text-5xl mb-12 flex items-center justify-center">
-          Qiita
-        </h1>
-        {articleData.map((articleData) => (
-          <QiitaArticle
-            title={articleData.title}
-            detail={articleData.detail}
-            url={articleData.url}
-            comment={articleData.comment}
-            key={articleData.id}
-          />
-        ))}
+      <div>
+        <Back />
+        <div className="mx-56 my-28">
+          <h1 className="text-5xl mb-12 flex items-center justify-center">
+            Qiita
+          </h1>
+          {articleData.map((articleData) => (
+            <QiitaArticle
+              title={articleData.title}
+              detail={articleData.detail}
+              image={articleData.image}
+              url={articleData.url}
+              comment={articleData.comment}
+              key={articleData.id}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

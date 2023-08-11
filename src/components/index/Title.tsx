@@ -12,7 +12,7 @@ const Title = (props: TitleData) => {
   console.log(props);
   return (
     <>
-      <div className="flex items-center justify-center">
+      <div className=" flex items-center justify-center">
         <Image
           src={props.thumbnail.url}
           alt="thumbnail"
@@ -21,10 +21,10 @@ const Title = (props: TitleData) => {
           className="mt-12 mb-6 rounded-full border border-black"
         />
       </div>
-      <h1 className="text-4xl mb-12 flex items-center justify-center">
+      <h1 className="sm:text-2xl mb-12 flex items-center justify-center">
         {props.greeting}
       </h1>
-      <p className="flex items-center justify-center">
+      <p className="sm:text-xs md:text-xl lg:text-xl xl:text-xl font-normal flex items-center justify-center">
         <b>{props.thanks}</b>
       </p>
     </>

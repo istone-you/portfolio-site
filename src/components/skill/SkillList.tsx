@@ -12,17 +12,27 @@ const SkillList = (props: SkillListProps) => {
               <p className="mb-12 flex items-center justify-center">
                 {skillCategory.business}
               </p>
-              <div className="flex items-center justify-center">
-                {skillCategory.business_skill.map((business_skill) => (
-                  <SkillItem skill={business_skill} key={business_skill.name} />
-                ))}
+              <div className="mx-auto">
+                <div className="flex flex-wrap items-center justify-center">
+                  {skillCategory.business_skill.map((business_skill) => (
+                    <SkillItem
+                      skill={business_skill}
+                      category={skillCategory.name}
+                      key={business_skill.name}
+                    />
+                  ))}
+                </div>
               </div>
               <p className="mb-12 flex items-center justify-center">
                 {skillCategory.private}
               </p>
               <div className="flex items-center justify-center">
                 {skillCategory.private_skill.map((private_skill) => (
-                  <SkillItem skill={private_skill} key={private_skill.name} />
+                  <SkillItem
+                    skill={private_skill}
+                    category={skillCategory.name}
+                    key={private_skill.name}
+                  />
                 ))}
               </div>
             </>

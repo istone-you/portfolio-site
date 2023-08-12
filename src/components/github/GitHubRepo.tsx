@@ -8,11 +8,11 @@ const GitHubRepo = (props: RepoData) => {
       <div className="flex items-center justify-center">
         <div>
           <div
-            className="my-6 py-14 px-24 text-black bg-white border-2 border-gray-200 rounded-lg dark:border-gray-700"
+            className="my-6 py-8 px-24 text-black bg-white border-2 border-gray-200 rounded-lg dark:border-gray-700"
             style={{ width: 800 }}
           >
             <a href={props.url}>
-              <h1 className="text-xl flex items-center justify-center">
+              <h1 className="text-2xl flex items-center justify-center">
                 {props.title}
               </h1>
             </a>
@@ -20,7 +20,7 @@ const GitHubRepo = (props: RepoData) => {
               dangerouslySetInnerHTML={{
                 __html: props.detail,
               }}
-              className="mt-4 font-normal"
+              className="mt-6 font-normal"
             />
             {props.image ? (
               <div className="flex items-center justify-center">

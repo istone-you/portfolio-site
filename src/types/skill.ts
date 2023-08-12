@@ -39,4 +39,5 @@ export interface SkillListProps {
 
 export interface SkillItemProps {
   skill: BusinessSkill | PriveteSkill;
+  category: string;
 }

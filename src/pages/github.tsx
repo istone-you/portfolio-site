@@ -9,7 +9,7 @@ import type {
   RepoCategoryProps,
 } from "@/types/github";
 
-const github = ({
+const Github = ({
   accountUrl,
   repoCategory,
 }: RepoCategoryProps & AccountDataProps) => {
@@ -53,4 +53,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default github;
+export default Github;

@@ -4,7 +4,7 @@ import QiitaArticle from "@/components/qiita/QiitaArticle";
 
 import type { AccountDataProps, ArticleDataProps } from "@/types/qiita";
 
-const qiita = ({
+const Qiita = ({
   accountUrl,
   articleData,
 }: AccountDataProps & ArticleDataProps) => {
@@ -50,4 +50,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default qiita;
+export default Qiita;

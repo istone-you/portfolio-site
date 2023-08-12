@@ -16,12 +16,12 @@ interface IndexDataProps {
   indexData: IndexData;
 }
 
-const about = ({ indexData }: IndexDataProps) => {
+const About = ({ indexData }: IndexDataProps) => {
   return (
     <div className="flex items-center justify-center">
       <div>
         <Back />
-        <div className="my-20">
+        <div className="pb-10 my-20">
           <h1 className="text-5xl mb-2 flex items-center justify-center">
             About
           </h1>
@@ -59,4 +59,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default about;
+export default About;

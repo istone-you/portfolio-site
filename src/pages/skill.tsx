@@ -1,19 +1,29 @@
+import { useState } from "react";
 import { skillClient } from "../libs/client";
 import Back from "@/components/common/Back";
-import SkillCategory from "@/components/skill/SkillCategory";
+
+import CategoryTab from "@/components/skill/CategoryTab";
+import SkillList from "@/components/skill/SkillList";
 
 import type { SkillCategoryProps } from "@/types/skill";
 
-const skill = ({ skillCategory }: SkillCategoryProps) => {
+const Skill = ({ skillCategory }: SkillCategoryProps) => {
+  const [selectSkill, setSelectSkill] = useState("Ops");
+
   return (
-    <div className="flex items-center justify-center">
+    <div className="mx-48 flex items-center justify-center">
       <div>
         <Back />
         <div className="my-20">
           <h1 className="text-5xl mb-12 flex items-center justify-center">
             Skill
           </h1>
-          <SkillCategory skillCategory={skillCategory} />
+          <CategoryTab
+            skillCategory={skillCategory}
+            selectSkill={selectSkill}
+            setSelectSkill={setSelectSkill}
+          />
+          <SkillList skillCategory={skillCategory} selectSkill={selectSkill} />
         </div>
       </div>
     </div>
@@ -32,4 +42,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default skill;
+export default Skill;

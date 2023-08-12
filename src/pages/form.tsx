@@ -1,6 +1,6 @@
 import Back from "@/components/common/Back";
 
-const form = () => {
+const Form = () => {
   return (
     <div className="flex items-center justify-center">
       <div>
@@ -15,4 +15,4 @@ const form = () => {
   );
 };
 
-export default form;
+export default Form;

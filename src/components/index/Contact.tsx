@@ -4,7 +4,7 @@ import type { ContactProps } from "@/types/index";
 
 const Contact = (props: ContactProps) => {
   return (
-    <div className="mt-12 flex items-center justify-center">
+    <div className="mt-20 flex items-center justify-center">
       <p className="">
         You can contact me via &nbsp;
         <a href={`mailto:${props.email}`}>Email</a>（{props.email}）,

@@ -4,7 +4,7 @@ import CareerContent from "@/components/career/CareerContent";
 
 import type { CarrerDatas } from "@/types/career";
 
-const career = ({ contents }: CarrerDatas) => {
+const Career = ({ contents }: CarrerDatas) => {
   return (
     <div className="flex items-center justify-center">
       <div>
@@ -34,4 +34,4 @@ export const getStaticProps = async () => {
   };
 };
 
-export default career;
+export default Career;

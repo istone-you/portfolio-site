@@ -1,14 +1,6 @@
 import Image from "next/image";
 
-interface ArticleData {
-  title: string;
-  detail: string;
-  image: {
-    url: string;
-  };
-  url: string;
-  comment: number | null;
-}
+import { ArticleData } from "@/types/qiita";
 
 const QiitaArticle = (props: ArticleData) => {
   return (

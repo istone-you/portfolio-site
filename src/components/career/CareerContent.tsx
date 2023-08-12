@@ -1,27 +1,7 @@
 import React from "react";
 import WorkContent from "./WorkContent";
 
-interface Work {
-  id: string;
-  title: string;
-  period: string;
-  occupation: string;
-  overview: string;
-  detail: string;
-  point: string;
-  number: number;
-}
-
-interface CarrerData {
-  id: string;
-  name: string;
-  period: string;
-  works: Work[];
-}
-
-interface CareerContentProps {
-  content: CarrerData;
-}
+import { CareerContentProps } from "@/types/career";
 
 const CareerContents = (props: CareerContentProps) => {
   return (

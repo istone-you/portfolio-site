@@ -2,28 +2,7 @@ import { qiitaClient } from "../libs/client";
 import Back from "@/components/common/Back";
 import QiitaArticle from "@/components/qiita/QiitaArticle";
 
-interface AccountData {
-  url: string;
-}
-
-interface AccountDataProps {
-  accountUrl: AccountData;
-}
-
-interface ArticleData {
-  id: string;
-  title: string;
-  detail: string;
-  image: {
-    url: string;
-  };
-  url: string;
-  comment: number | null;
-}
-
-interface ArticleDataProps {
-  articleData: ArticleData[];
-}
+import { AccountDataProps, ArticleDataProps } from "@/types/qiita";
 
 const qiita = ({
   accountUrl,
@@ -42,6 +21,7 @@ const qiita = ({
           </p>
           {articleData.map((articleData) => (
             <QiitaArticle
+              id={articleData.id}
               title={articleData.title}
               detail={articleData.detail}
               image={articleData.image}

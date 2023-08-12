@@ -2,27 +2,7 @@ import { careerClient } from "../libs/client";
 import Back from "@/components/common/Back";
 import CareerContent from "@/components/career/CareerContent";
 
-interface Work {
-  id: string;
-  title: string;
-  period: string;
-  occupation: string;
-  overview: string;
-  detail: string;
-  point: string;
-  number: number;
-}
-
-interface CarrerData {
-  id: string;
-  name: string;
-  period: string;
-  works: Work[];
-}
-
-interface CarrerDatas {
-  contents: CarrerData[];
-}
+import { CarrerDatas } from "@/types/career";
 
 const career = ({ contents }: CarrerDatas) => {
   return (

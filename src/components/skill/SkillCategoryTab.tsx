@@ -1,11 +1,11 @@
 import React, { Dispatch, SetStateAction } from "react";
 import type { CategoryTabProps } from "@/types/skill";
 
-const CategoryTab = (props: CategoryTabProps) => {
+const SkillCategoryTab = (props: CategoryTabProps) => {
   return (
-    <ul className="mb-12 flex items-center justify-center text-sm font-medium text-center">
+    <ul className="fade-in-second mb-12 flex items-center justify-center text-sm font-medium text-center">
       {props.skillCategory.map((skillCategory) => (
-        <div key={skillCategory.name} className="list-none">
+        <div key={skillCategory.name} className="w-full list-none">
           <div
             onClick={() => props.setSelectSkill(skillCategory.name)}
             onKeyDown={(e) => {
@@ -31,7 +31,7 @@ const CategoryTab = (props: CategoryTabProps) => {
                 : "text-black"
             } ${
               props.selectSkill === skillCategory.name ? "bg-black" : ""
-            } border-b-2 border-black text-base`}
+            } border-b-2 border-black text-base w-full `}
           >
             {skillCategory.name}
           </div>
@@ -41,4 +41,4 @@ const CategoryTab = (props: CategoryTabProps) => {
   );
 };
 
-export default CategoryTab;
+export default SkillCategoryTab;

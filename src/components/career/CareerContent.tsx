@@ -3,21 +3,21 @@ import WorkContent from "./WorkContent";
 
 import { CareerContentProps } from "@/types/career";
 
-const CareerContents = (props: CareerContentProps) => {
+const CareerContents = ({ carrerData }: CareerContentProps) => {
   return (
-    <div>
+    <div className="fade-in-second">
       <div className="flex items-center justify-center">
         <div>
           <h1 className="text-2xl flex items-center justify-center">
-            {props.content.name}
+            {carrerData.name}
           </h1>
           <p className="flex items-center justify-center">
-            {props.content.period}
+            {carrerData.period}
           </p>
         </div>
       </div>
       <ul>
-        {props.content.works.map((work) => (
+        {carrerData.works.map((work) => (
           <WorkContent work={work} key={work.id} />
         ))}
       </ul>

@@ -1,43 +1,32 @@
 import { qiitaClient } from "../libs/client";
 import Back from "@/components/common/Back";
+import PageTitle from "@/components/common/PageTitle";
+import Account from "@/components/common/Account";
 import QiitaArticle from "@/components/qiita/QiitaArticle";
 
-import type { AccountDataProps, ArticleDataProps } from "@/types/qiita";
+import type { AccountDataProps, ArticleDatas } from "@/types/qiita";
+import { ArticleData } from "../types/qiita";
 
 const Qiita = ({
   accountUrl,
-  articleData,
-}: AccountDataProps & ArticleDataProps) => {
+  articleDatas,
+}: AccountDataProps & ArticleDatas) => {
   return (
     <div className="flex items-center justify-center">
       <div>
         <Back />
-        <div className="my-20">
-          <h1 className="text-5xl mb-12 flex items-center justify-center">
-            Qiita
-          </h1>
-          <p className="flex items-center justify-center">
-            アカウントは<a href={accountUrl.url}>こちら</a>
-          </p>
-          {articleData.map((articleData) => (
-            <QiitaArticle
-              id={articleData.id}
-              title={articleData.title}
-              detail={articleData.detail}
-              image={articleData.image}
-              url={articleData.url}
-              comment={articleData.comment}
-              key={articleData.id}
-            />
-          ))}
-        </div>
+        <PageTitle title="Qiita" />
+        <Account accountUrl={accountUrl} />
+        {articleDatas.map((articleData) => (
+          <QiitaArticle key={articleData.id} articleData={articleData} />
+        ))}
       </div>
     </div>
   );
 };
 
 export const getStaticProps = async () => {
-  const [accountUrl, articleData] = await Promise.all([
+  const [accountUrl, articleDatas] = await Promise.all([
     qiitaClient.get({ endpoint: "account" }),
     qiitaClient.get({ endpoint: "article" }),
   ]);
@@ -45,7 +34,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       accountUrl,
-      articleData: articleData.contents,
+      articleDatas: articleDatas.contents,
     },
   };
 };

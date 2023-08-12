@@ -1,4 +1,4 @@
-import CategoryTab from "../components/skill/CategoryTab";
+import CategoryTab from "../components/skill/SkillCategoryTab";
 export interface SkillCategory {
   id: string;
   name: string;

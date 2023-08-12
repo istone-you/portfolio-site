@@ -17,6 +17,10 @@ export interface ArticleData {
   comment: number | null;
 }
 
-export interface ArticleDataProps {
-  articleData: ArticleData[];
+export interface ArticleDatas {
+  articleDatas: ArticleData[];
+}
+
+export interface QiitaArticleProps {
+  articleData: ArticleData;
 }

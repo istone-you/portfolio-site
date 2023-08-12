@@ -1,4 +1,5 @@
-export interface IndexData {
+import PageCard from "../components/index/PageCard";
+export interface Index {
   thumbnail: {
     url: string;
   };
@@ -6,32 +7,24 @@ export interface IndexData {
   thanks: string;
   email: string;
   twitter: string;
+  about: string;
 }
 
-export interface IndexDataProps {
-  indexData: IndexData;
-}
-
-export interface PagesData {
+export interface Page {
   id: string;
   path: string;
   title: string;
   detail: string;
 }
 
-export interface PagesDataProps {
-  pagesData: PagesData[];
+export interface Pages {
+  pages: Page[];
 }
 
-export interface ContactProps {
-  email: string;
-  twitter: string;
+export interface IndexProps {
+  index: Index;
 }
 
-export interface TitleProps {
-  thumbnail: {
-    url: string;
-  };
-  greeting: string;
-  thanks: string;
+export interface PageCardProps {
+  page: Page;
 }

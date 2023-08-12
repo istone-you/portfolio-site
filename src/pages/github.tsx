@@ -1,54 +1,53 @@
 import { githubClient } from "../libs/client";
 import Back from "@/components/common/Back";
+import PageTitle from "@/components/common/PageTitle";
+import Account from "@/components/common/Account";
 import GitHubCategory from "@/components/github/GitHubCategory";
 
 import type {
-  AccountDataProps,
+  githubAccount,
   RepoCategory,
-  RepoData,
-  RepoCategoryProps,
+  Repository,
+  RepoCategories,
 } from "@/types/github";
 
 const Github = ({
-  accountUrl,
-  repoCategory,
-}: RepoCategoryProps & AccountDataProps) => {
+  githubAccount,
+  repoCategories,
+}: {
+  githubAccount: githubAccount;
+  repoCategories: RepoCategories;
+}) => {
   return (
     <div className="flex items-center justify-center">
       <div>
         <Back />
-        <div className="my-20">
-          <h1 className="text-5xl mb-12 flex items-center justify-center">
-            Github
-          </h1>
-          <p className="flex items-center justify-center">
-            アカウントは<a href={accountUrl.url}>こちら</a>
-          </p>
-          <GitHubCategory repoCategory={repoCategory} />
-        </div>
+        <PageTitle title="GitHub" />
+        <Account githubAccount={githubAccount} />
+        <GitHubCategory repoCategories={repoCategories} />
       </div>
     </div>
   );
 };
 
 export const getStaticProps = async () => {
-  const [accountUrl, repository, category] = await Promise.all([
+  const [githubAccount, repository, category] = await Promise.all([
     githubClient.get({ endpoint: "account" }),
     githubClient.get({ endpoint: "repo" }),
     githubClient.get({ endpoint: "category" }),
   ]);
 
-  const repoCategory = category.contents.map((cat: RepoCategory) => ({
+  const repoCategories = category.contents.map((cat: RepoCategory) => ({
     name: cat.name,
-    repository: repository.contents.filter(
-      (repo: RepoData) => repo.category.name === cat.name
+    repositories: repository.contents.filter(
+      (repo: Repository) => repo.category.name === cat.name
     ),
   }));
 
   return {
     props: {
-      accountUrl,
-      repoCategory,
+      githubAccount: githubAccount.url,
+      repoCategories,
     },
   };
 };

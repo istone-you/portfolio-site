@@ -1,17 +1,14 @@
-export interface AccountData {
-  url: string;
-}
-
-export interface AccountDataProps {
-  accountUrl: AccountData;
-}
+export type githubAccount = string;
 
 export interface RepoCategory {
+  id: string;
   name: string;
-  repository: RepoData[];
+  repositories: Repository[];
 }
 
-export interface RepoData {
+export type RepoCategories = RepoCategory[];
+
+export interface Repository {
   id: string;
   title: string;
   detail: string;
@@ -20,8 +17,4 @@ export interface RepoData {
   };
   url: string;
   category: RepoCategory;
-}
-
-export interface RepoCategoryProps {
-  repoCategory: RepoCategory[];
 }

@@ -17,11 +17,11 @@ export interface CarrerData {
 }
 
 export interface CarrerDatas {
-  contents: CarrerData[];
+  carrerDatas: CarrerData[];
 }
 
 export interface CareerContentProps {
-  content: CarrerData;
+  carrerData: CarrerData;
 }
 
 export interface WorkProps {

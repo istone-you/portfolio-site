@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { skillClient } from "../libs/client";
 import Back from "@/components/common/Back";
+import PageTitle from "@/components/common/PageTitle";
 
-import CategoryTab from "@/components/skill/CategoryTab";
+import SkillCategoryTab from "@/components/skill/SkillCategoryTab";
 import SkillList from "@/components/skill/SkillList";
 
 import type { SkillCategoryProps } from "@/types/skill";
@@ -12,19 +13,15 @@ const Skill = ({ skillCategory }: SkillCategoryProps) => {
 
   return (
     <div className="mx-48 flex items-center justify-center">
-      <div>
+      <div className="w-full">
         <Back />
-        <div className="my-20">
-          <h1 className="text-5xl mb-12 flex items-center justify-center">
-            Skill
-          </h1>
-          <CategoryTab
-            skillCategory={skillCategory}
-            selectSkill={selectSkill}
-            setSelectSkill={setSelectSkill}
-          />
-          <SkillList skillCategory={skillCategory} selectSkill={selectSkill} />
-        </div>
+        <PageTitle title="Skill" />
+        <SkillCategoryTab
+          skillCategory={skillCategory}
+          selectSkill={selectSkill}
+          setSelectSkill={setSelectSkill}
+        />
+        <SkillList skillCategory={skillCategory} selectSkill={selectSkill} />
       </div>
     </div>
   );

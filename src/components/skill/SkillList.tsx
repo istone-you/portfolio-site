@@ -4,7 +4,7 @@ import type { SkillListProps } from "@/types/skill";
 
 const SkillList = (props: SkillListProps) => {
   return (
-    <ul className="mb-12">
+    <ul className="fade-in-second mb-12">
       {props.skillCategory.map((skillCategory) => (
         <div key={skillCategory.name}>
           {props.selectSkill === skillCategory.name && (

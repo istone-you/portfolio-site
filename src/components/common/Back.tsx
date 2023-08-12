@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 const Back = () => {
   const router = useRouter();
   return (
-    <div className="mt-10 flex items-center justify-center mb-10">
+    <div className="fade-in-back-button mt-10 flex items-center justify-center mb-10">
       <Link
         href="#"
         onClick={() => {

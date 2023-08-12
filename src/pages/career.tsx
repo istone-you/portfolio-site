@@ -1,7 +1,7 @@
 import { careerClient } from "../libs/client";
 import Back from "@/components/common/Back";
 import PageTitle from "@/components/common/PageTitle";
-import CareerContent from "@/components/career/CareerContents";
+import CareerContents from "@/components/career/CareerContents";
 
 import type { Companies } from "@/types/career";
 
@@ -11,7 +11,7 @@ const Career = ({ companies }: { companies: Companies }) => {
       <div>
         <Back />
         <PageTitle title="Career" />
-        <CareerContent companies={companies} />
+        <CareerContents companies={companies} />
       </div>
     </div>
   );

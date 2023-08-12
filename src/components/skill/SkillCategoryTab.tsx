@@ -1,4 +1,3 @@
-import React, { Dispatch, SetStateAction } from "react";
 import type {
   SkillCategories,
   SelectSkill,

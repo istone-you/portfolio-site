@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import type { IndexProps } from "@/types/index";
+import type { Index } from "@/types/index";
 
-const Profile = ({ index }: IndexProps) => {
+const Profile = ({ index }: { index: Index }) => {
   return (
     <div className="fade-in-second">
       <div className="flex items-center justify-center">

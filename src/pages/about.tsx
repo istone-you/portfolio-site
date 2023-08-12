@@ -1,7 +1,7 @@
 import { indexClient } from "../libs/client";
 import Back from "@/components/common/Back";
 import PageTitle from "@/components/common/PageTitle";
-import Profile from "@/components/about/profile";
+import Profile from "@/components/about/Profile";
 import Contact from "@/components/index/Contact";
 
 import type { Index } from "@/types/index";

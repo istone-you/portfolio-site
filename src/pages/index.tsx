@@ -1,35 +1,12 @@
 import { Inter } from "next/font/google";
 import { indexClient } from "../libs/client";
 import Title from "@/components/index/Title";
-import Card from "@/components/index/Card";
+import PageCard from "@/components/index/PageCard";
 import Contact from "@/components/index/Contact";
 
+import type { IndexDataProps, PagesDataProps } from "@/types/index";
+
 const inter = Inter({ subsets: ["latin"] });
-
-interface IndexData {
-  thumbnail: {
-    url: string;
-  };
-  greeting: string;
-  thanks: string;
-  email: string;
-  twitter: string;
-}
-
-interface IndexDataProps {
-  indexData: IndexData;
-}
-
-interface PagesData {
-  id: string;
-  path: string;
-  title: string;
-  detail: string;
-}
-
-interface PagesDataProps {
-  pagesData: PagesData[];
-}
 
 export default function Home({
   indexData,
@@ -46,7 +23,8 @@ export default function Home({
           />
           <div className="lg:mx-24 xl:mx-72 flex flex-wrap tems-center justify-center">
             {pagesData.map((pagesData) => (
-              <Card
+              <PageCard
+                id={pagesData.id}
                 path={pagesData.path}
                 title={pagesData.title}
                 detail={pagesData.detail}

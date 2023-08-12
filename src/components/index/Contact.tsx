@@ -1,18 +1,16 @@
-import React from "react";
+import Link from "next/link";
 
-interface ContactData {
-  email: string;
-  twitter: string;
-}
+import type { ContactProps } from "@/types/index";
 
-const Contact = (props: ContactData) => {
+const Contact = (props: ContactProps) => {
   return (
     <div className="mt-12 flex items-center justify-center">
       <p className="">
-        My email adress is&nbsp;
-        <a href={`mailto:${props.email}`}>{props.email}&nbsp;</a>
-        or find me on&nbsp;
-        <a href={props.twitter}>Twitter</a>
+        You can contact me via &nbsp;
+        <a href={`mailto:${props.email}`}>Email</a>（{props.email}）,
+        <a href={props.twitter}>Twitter&nbsp;</a>
+        or this&nbsp;
+        <Link href="/form">Form</Link>
       </p>
     </div>
   );

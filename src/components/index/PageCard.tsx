@@ -1,12 +1,8 @@
 import Link from "next/link";
 
-interface CardProps {
-  path: string;
-  title: string;
-  detail: string;
-}
+import type { PagesData } from "@/types/index";
 
-const Card = (props: CardProps) => {
+const PageCard = (props: PagesData) => {
   return (
     <div className="px-12">
       <Link href={props.path} className="hover:no-underline">
@@ -22,4 +18,4 @@ const Card = (props: CardProps) => {
   );
 };
 
-export default Card;
+export default PageCard;

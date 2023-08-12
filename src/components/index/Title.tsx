@@ -1,14 +1,8 @@
 import Image from "next/image";
 
-interface TitleData {
-  thumbnail: {
-    url: string;
-  };
-  greeting: string;
-  thanks: string;
-}
+import type { TitleProps } from "@/types/index";
 
-const Title = (props: TitleData) => {
+const Title = (props: TitleProps) => {
   return (
     <>
       <div className=" flex items-center justify-center">

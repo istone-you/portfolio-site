@@ -1,3 +1,4 @@
+import CategoryTab from "../components/skill/CategoryTab";
 export interface SkillCategory {
   id: string;
   name: string;
@@ -23,4 +24,19 @@ export interface PriveteSkill {
 
 export interface SkillCategoryProps {
   skillCategory: SkillCategory[];
+}
+
+export interface CategoryTabProps {
+  skillCategory: SkillCategory[];
+  setSelectSkill: React.Dispatch<React.SetStateAction<string>>;
+  selectSkill: string;
+}
+
+export interface SkillListProps {
+  skillCategory: SkillCategory[];
+  selectSkill: string;
+}
+
+export interface SkillItemProps {
+  skill: BusinessSkill | PriveteSkill;
 }

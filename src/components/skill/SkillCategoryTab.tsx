@@ -1,36 +1,44 @@
 import React, { Dispatch, SetStateAction } from "react";
-import type { CategoryTabProps } from "@/types/skill";
+import type {
+  SkillCategories,
+  SelectSkill,
+  SetSelectSkill,
+} from "@/types/skill";
 
-const SkillCategoryTab = (props: CategoryTabProps) => {
+const SkillCategoryTab = ({
+  skillCategories,
+  selectSkill,
+  setSelectSkill,
+}: {
+  skillCategories: SkillCategories;
+  selectSkill: SelectSkill;
+  setSelectSkill: SetSelectSkill;
+}) => {
   return (
     <ul className="fade-in-second mb-12 flex items-center justify-center text-sm font-medium text-center">
-      {props.skillCategory.map((skillCategory) => (
+      {skillCategories.map((skillCategory) => (
         <div key={skillCategory.name} className="w-full list-none">
           <div
-            onClick={() => props.setSelectSkill(skillCategory.name)}
+            onClick={() => setSelectSkill(skillCategory.name)}
             onKeyDown={(e) => {
               if (e.key === "Enter" || e.key === " ") {
-                props.setSelectSkill(skillCategory.name);
+                setSelectSkill(skillCategory.name);
               }
             }}
             role="button"
             tabIndex={0}
             className={`w-48 ${
-              props.selectSkill === skillCategory.name
+              selectSkill === skillCategory.name
                 ? "pointer-events-none"
                 : "pointer-events-auto"
-            } ${
-              props.selectSkill === skillCategory.name ? "" : "bg-transparent"
-            } ${
-              props.selectSkill === skillCategory.name
+            } ${selectSkill === skillCategory.name ? "" : "bg-transparent"} ${
+              selectSkill === skillCategory.name
                 ? "cursor-default"
                 : "cursor-pointer"
             } ${
-              props.selectSkill === skillCategory.name
-                ? "text-white"
-                : "text-black"
+              selectSkill === skillCategory.name ? "text-white" : "text-black"
             } ${
-              props.selectSkill === skillCategory.name ? "bg-black" : ""
+              selectSkill === skillCategory.name ? "bg-black" : ""
             } border-b-2 border-black text-base w-full `}
           >
             {skillCategory.name}

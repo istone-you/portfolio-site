@@ -1,13 +1,19 @@
 import SkillItem from "./SkillItem";
 
-import type { SkillListProps } from "@/types/skill";
+import type { SkillCategories, SelectSkill } from "@/types/skill";
 
-const SkillList = (props: SkillListProps) => {
+const SkillList = ({
+  skillCategories,
+  selectSkill,
+}: {
+  skillCategories: SkillCategories;
+  selectSkill: SelectSkill;
+}) => {
   return (
     <ul className="fade-in-second mb-12">
-      {props.skillCategory.map((skillCategory) => (
+      {skillCategories.map((skillCategory) => (
         <div key={skillCategory.name}>
-          {props.selectSkill === skillCategory.name && (
+          {selectSkill === skillCategory.name && (
             <>
               <p className="mb-12 flex items-center justify-center">
                 {skillCategory.business}
@@ -17,7 +23,7 @@ const SkillList = (props: SkillListProps) => {
                   {skillCategory.business_skill.map((business_skill) => (
                     <SkillItem
                       skill={business_skill}
-                      category={skillCategory.name}
+                      skillCategory={skillCategory}
                       key={business_skill.name}
                     />
                   ))}
@@ -30,7 +36,7 @@ const SkillList = (props: SkillListProps) => {
                 {skillCategory.private_skill.map((private_skill) => (
                   <SkillItem
                     skill={private_skill}
-                    category={skillCategory.name}
+                    skillCategory={skillCategory}
                     key={private_skill.name}
                   />
                 ))}

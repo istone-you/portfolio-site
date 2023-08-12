@@ -4,9 +4,9 @@ import PageTitle from "@/components/common/PageTitle";
 import Profile from "@/components/about/profile";
 import Contact from "@/components/index/Contact";
 
-import type { IndexProps } from "@/types/index";
+import type { Index } from "@/types/index";
 
-const About = ({ index }: IndexProps) => {
+const About = ({ index }: { index: Index }) => {
   return (
     <div className="flex items-center justify-center">
       <div>

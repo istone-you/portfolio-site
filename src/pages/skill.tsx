@@ -6,9 +6,9 @@ import PageTitle from "@/components/common/PageTitle";
 import SkillCategoryTab from "@/components/skill/SkillCategoryTab";
 import SkillList from "@/components/skill/SkillList";
 
-import type { SkillCategoryProps } from "@/types/skill";
+import type { SkillCategories } from "@/types/skill";
 
-const Skill = ({ skillCategory }: SkillCategoryProps) => {
+const Skill = ({ skillCategories }: { skillCategories: SkillCategories }) => {
   const [selectSkill, setSelectSkill] = useState("Ops");
 
   return (
@@ -17,24 +17,27 @@ const Skill = ({ skillCategory }: SkillCategoryProps) => {
         <Back />
         <PageTitle title="Skill" />
         <SkillCategoryTab
-          skillCategory={skillCategory}
+          skillCategories={skillCategories}
           selectSkill={selectSkill}
           setSelectSkill={setSelectSkill}
         />
-        <SkillList skillCategory={skillCategory} selectSkill={selectSkill} />
+        <SkillList
+          skillCategories={skillCategories}
+          selectSkill={selectSkill}
+        />
       </div>
     </div>
   );
 };
 
 export const getStaticProps = async () => {
-  const skillCategory = await skillClient.get({
+  const skillCategories = await skillClient.get({
     endpoint: "category",
   });
 
   return {
     props: {
-      skillCategory: skillCategory.contents,
+      skillCategories: skillCategories.contents,
     },
   };
 };

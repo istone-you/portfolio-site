@@ -9,21 +9,11 @@ export interface Work {
   number: number;
 }
 
-export interface CarrerData {
+export interface Company {
   id: string;
   name: string;
   period: string;
   works: Work[];
 }
 
-export interface CarrerDatas {
-  carrerDatas: CarrerData[];
-}
-
-export interface CareerContentProps {
-  carrerData: CarrerData;
-}
-
-export interface WorkProps {
-  work: Work;
-}
+export type Companies = Company[];

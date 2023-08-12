@@ -4,40 +4,18 @@ export interface SkillCategory {
   name: string;
   business: string;
   private: string;
-  business_skill: BusinessSkill[];
-  private_skill: PriveteSkill[];
+  business_skill: Skill[];
+  private_skill: Skill[];
 }
 
-export interface BusinessSkill {
+export type SkillCategories = SkillCategory[];
+
+export type SelectSkill = string;
+export type SetSelectSkill = React.Dispatch<React.SetStateAction<string>>;
+
+export interface Skill {
   name: string;
   image: {
     url: string;
   };
-}
-
-export interface PriveteSkill {
-  name: string;
-  image: {
-    url: string;
-  };
-}
-
-export interface SkillCategoryProps {
-  skillCategory: SkillCategory[];
-}
-
-export interface CategoryTabProps {
-  skillCategory: SkillCategory[];
-  setSelectSkill: React.Dispatch<React.SetStateAction<string>>;
-  selectSkill: string;
-}
-
-export interface SkillListProps {
-  skillCategory: SkillCategory[];
-  selectSkill: string;
-}
-
-export interface SkillItemProps {
-  skill: BusinessSkill | PriveteSkill;
-  category: string;
 }

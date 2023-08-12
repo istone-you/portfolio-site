@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-import type { RepoCategory } from "@/types/github";
+import type { RepoCategory, Repository } from "@/types/github";
 
-const GitHubRepo = ({ repoCategory }: { repoCategory: RepoCategory }) => {
+const GitHubRepos = ({ repoCategory }: { repoCategory: RepoCategory }) => {
   return (
     <div>
-      {repoCategory.repositories.map((repository) => (
+      {repoCategory.repositories.map((repository: Repository) => (
         <div className="flex items-center justify-center" key={repository.id}>
           <div>
             <div
@@ -41,4 +41,4 @@ const GitHubRepo = ({ repoCategory }: { repoCategory: RepoCategory }) => {
   );
 };
 
-export default GitHubRepo;
+export default GitHubRepos;

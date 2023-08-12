@@ -1,32 +1,30 @@
 import { careerClient } from "../libs/client";
 import Back from "@/components/common/Back";
 import PageTitle from "@/components/common/PageTitle";
-import CareerContent from "@/components/career/CareerContent";
+import CareerContent from "@/components/career/CareerContents";
 
-import type { CarrerDatas } from "@/types/career";
+import type { Companies } from "@/types/career";
 
-const Career = ({ carrerDatas }: CarrerDatas) => {
+const Career = ({ companies }: { companies: Companies }) => {
   return (
     <div className="flex items-center justify-center">
       <div>
         <Back />
         <PageTitle title="Career" />
-        {carrerDatas.map((carrerData) => (
-          <CareerContent carrerData={carrerData} key={carrerData.id} />
-        ))}
+        <CareerContent companies={companies} />
       </div>
     </div>
   );
 };
 
 export const getStaticProps = async () => {
-  const carrerDatas = await careerClient.get({
+  const companies = await careerClient.get({
     endpoint: "company",
     queries: { limit: 100 },
   });
   return {
     props: {
-      carrerDatas: carrerDatas.contents,
+      companies: companies.contents,
     },
   };
 };

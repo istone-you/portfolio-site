@@ -1,4 +1,3 @@
-import PageCard from "../components/index/PageCard";
 export interface Index {
   thumbnail: {
     url: string;
@@ -17,14 +16,4 @@ export interface Page {
   detail: string;
 }
 
-export interface Pages {
-  pages: Page[];
-}
-
-export interface IndexProps {
-  index: Index;
-}
-
-export interface PageCardProps {
-  page: Page;
-}
+export type Pages = Page[];

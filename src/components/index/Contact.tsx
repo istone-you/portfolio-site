@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import type { IndexProps } from "@/types/index";
+import type { Index } from "@/types/index";
 
-const Contact = ({ index }: IndexProps) => {
+const Contact = ({ index }: { index: Index }) => {
   return (
     <div className="fade-in-third mt-20 flex items-center justify-center">
       <p className="">

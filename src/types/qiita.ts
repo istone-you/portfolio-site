@@ -1,12 +1,4 @@
-export interface AccountData {
-  url: string;
-}
-
-export interface AccountDataProps {
-  accountUrl: AccountData;
-}
-
-export interface ArticleData {
+export interface Article {
   id: string;
   title: string;
   detail: string;
@@ -17,10 +9,4 @@ export interface ArticleData {
   comment: number | null;
 }
 
-export interface ArticleDatas {
-  articleDatas: ArticleData[];
-}
-
-export interface QiitaArticleProps {
-  articleData: ArticleData;
-}
+export type Articles = Article[];

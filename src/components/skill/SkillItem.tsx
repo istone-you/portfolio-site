@@ -1,18 +1,24 @@
 import Image from "next/image";
 
-import type { SkillItemProps } from "@/types/skill";
+import type { Skill, SkillCategory } from "@/types/skill";
 
-const SkillItem = (props: SkillItemProps) => {
+const SkillItem = ({
+  skill,
+  skillCategory,
+}: {
+  skill: Skill;
+  skillCategory: SkillCategory;
+}) => {
   return (
     <div
-      className={`mx-6 mb-12 ${props.category == "AWS" ? "w-40" : "w-24"}`}
-      key={props.skill.name}
+      className={`mx-6 mb-12 ${skillCategory.name == "AWS" ? "w-40" : "w-24"}`}
+      key={skill.name}
     >
       <div className="flex items-center justify-center">
-        <Image src={props.skill.image.url} alt="" width={80} height={80} />
+        <Image src={skill.image.url} alt="" width={80} height={80} />
       </div>
       <div className="flex items-center justify-center">
-        <b>{props.skill.name}</b>
+        <b>{skill.name}</b>
       </div>
     </div>
   );

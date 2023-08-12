@@ -1,21 +1,17 @@
 import { githubClient } from "../libs/client";
 import Back from "@/components/common/Back";
 import PageTitle from "@/components/common/PageTitle";
-import Account from "@/components/common/Account";
-import GitHubCategory from "@/components/github/GitHubCategory";
+import AccountLink from "@/components/common/AccountLink";
+import GitHubRepoCategories from "@/components/github/GitHubRepoCategories";
 
-import type {
-  githubAccount,
-  RepoCategory,
-  Repository,
-  RepoCategories,
-} from "@/types/github";
+import type { RepoCategory, Repository, RepoCategories } from "@/types/github";
+import type { AccountUrl } from "@/types/common";
 
 const Github = ({
-  githubAccount,
+  githubAccountUrl,
   repoCategories,
 }: {
-  githubAccount: githubAccount;
+  githubAccountUrl: AccountUrl;
   repoCategories: RepoCategories;
 }) => {
   return (
@@ -23,8 +19,8 @@ const Github = ({
       <div>
         <Back />
         <PageTitle title="GitHub" />
-        <Account githubAccount={githubAccount} />
-        <GitHubCategory repoCategories={repoCategories} />
+        <AccountLink accountUrl={githubAccountUrl} />
+        <GitHubRepoCategories repoCategories={repoCategories} />
       </div>
     </div>
   );
@@ -46,7 +42,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      githubAccount: githubAccount.url,
+      githubAccountUrl: githubAccount.url,
       repoCategories,
     },
   };

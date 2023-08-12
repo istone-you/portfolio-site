@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import type { IndexProps } from "@/types/index";
+import type { Index } from "@/types/index";
 
-const Title = ({ index }: IndexProps) => {
+const Title = ({ index }: { index: Index }) => {
   return (
     <>
       <div className="fade-in-first">

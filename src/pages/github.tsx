@@ -1,32 +1,18 @@
-import Image from "next/image";
 import { githubClient } from "../libs/client";
 import Back from "@/components/common/Back";
-import GitHubRepo from "@/components/github/GitHubRepo";
+import GitHubCategory from "@/components/github/GitHubCategory";
 
-interface AccountData {
-  url: string;
-}
+import type {
+  AccountDataProps,
+  RepoCategory,
+  RepoData,
+  RepoCategoryProps,
+} from "@/types/github";
 
-interface AccountDataProps {
-  accountUrl: AccountData;
-}
-
-interface RepoData {
-  id: string;
-  title: string;
-  detail: string;
-  image: {
-    url: string;
-  };
-  url: string;
-  category: string;
-}
-
-interface RepoDataProps {
-  repoData: RepoData[];
-}
-
-const github = ({ accountUrl, repoData }: RepoDataProps & AccountDataProps) => {
+const github = ({
+  accountUrl,
+  repoCategory,
+}: RepoCategoryProps & AccountDataProps) => {
   return (
     <div className="flex items-center justify-center">
       <div>
@@ -38,16 +24,7 @@ const github = ({ accountUrl, repoData }: RepoDataProps & AccountDataProps) => {
           <p className="flex items-center justify-center">
             アカウントは<a href={accountUrl.url}>こちら</a>
           </p>
-          {repoData.map((repoData) => (
-            <GitHubRepo
-              key={repoData.id}
-              title={repoData.title}
-              detail={repoData.detail}
-              image={repoData.image}
-              url={repoData.url}
-              category={repoData.category}
-            />
-          ))}
+          <GitHubCategory repoCategory={repoCategory} />
         </div>
       </div>
     </div>
@@ -55,15 +32,23 @@ const github = ({ accountUrl, repoData }: RepoDataProps & AccountDataProps) => {
 };
 
 export const getStaticProps = async () => {
-  const [accountUrl, repoData] = await Promise.all([
+  const [accountUrl, repository, category] = await Promise.all([
     githubClient.get({ endpoint: "account" }),
     githubClient.get({ endpoint: "repo" }),
+    githubClient.get({ endpoint: "category" }),
   ]);
+
+  const repoCategory = category.contents.map((cat: RepoCategory) => ({
+    name: cat.name,
+    repository: repository.contents.filter(
+      (repo: RepoData) => repo.category.name === cat.name
+    ),
+  }));
 
   return {
     props: {
       accountUrl,
-      repoData: repoData.contents,
+      repoCategory,
     },
   };
 };

@@ -1,14 +1,6 @@
 import Image from "next/image";
 
-interface RepoData {
-  title: string;
-  detail: string;
-  image: {
-    url: string;
-  };
-  url: string;
-  category: string;
-}
+import type { RepoData } from "@/types/github";
 
 const GitHubRepo = (props: RepoData) => {
   return (

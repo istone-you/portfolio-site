@@ -2,7 +2,7 @@ import { qiitaClient } from "../libs/client";
 import Back from "@/components/common/Back";
 import QiitaArticle from "@/components/qiita/QiitaArticle";
 
-import { AccountDataProps, ArticleDataProps } from "@/types/qiita";
+import type { AccountDataProps, ArticleDataProps } from "@/types/qiita";
 
 const qiita = ({
   accountUrl,

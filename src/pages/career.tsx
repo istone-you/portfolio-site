@@ -2,7 +2,7 @@ import { careerClient } from "../libs/client";
 import Back from "@/components/common/Back";
 import CareerContent from "@/components/career/CareerContent";
 
-import { CarrerDatas } from "@/types/career";
+import type { CarrerDatas } from "@/types/career";
 
 const career = ({ contents }: CarrerDatas) => {
   return (

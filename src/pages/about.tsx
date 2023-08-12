@@ -49,9 +49,6 @@ const about = ({ indexData }: IndexDataProps) => {
     </div>
   );
 };
-
-export default about;
-
 export const getStaticProps = async () => {
   const indexData = await indexClient.get({ endpoint: "index" });
 
@@ -61,3 +58,5 @@ export const getStaticProps = async () => {
     },
   };
 };
+
+export default about;

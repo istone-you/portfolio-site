@@ -16,7 +16,7 @@ const SkillCategoryTab = ({
   return (
     <ul className="fade-in-second mb-12 flex items-center justify-center text-sm font-medium text-center">
       {skillCategories.map((skillCategory) => (
-        <div key={skillCategory.name} className="w-full list-none">
+        <div key={skillCategory.name} className="mx-2 list-none">
           <div
             onClick={() => setSelectSkill(skillCategory.name)}
             onKeyDown={(e) => {
@@ -30,15 +30,19 @@ const SkillCategoryTab = ({
               selectSkill === skillCategory.name
                 ? "pointer-events-none"
                 : "pointer-events-auto"
-            } ${selectSkill === skillCategory.name ? "" : "bg-transparent"} ${
+            }  ${
               selectSkill === skillCategory.name
                 ? "cursor-default"
                 : "cursor-pointer"
             } ${
-              selectSkill === skillCategory.name ? "text-white" : "text-black"
+              selectSkill === skillCategory.name ? "bg-black" : "text-black"
             } ${
-              selectSkill === skillCategory.name ? "bg-black" : ""
-            } border-b-2 border-black text-base w-full `}
+              selectSkill === skillCategory.name ? "text-white" : "bg-white"
+            } ${
+              selectSkill === skillCategory.name
+                ? "shadow-none translate-y-1 hover:translate-x-1"
+                : ""
+            } px-4 py-1 font-bold border border-black button-shadow `}
           >
             {skillCategory.name}
           </div>

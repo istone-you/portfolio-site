@@ -3,6 +3,7 @@ import Image from "next/image";
 import type { RepoCategory, Repository } from "@/types/github";
 
 const GitHubRepos = ({ repoCategory }: { repoCategory: RepoCategory }) => {
+  console.log("hello");
   return (
     <div>
       {repoCategory.repositories.map((repository: Repository) => (

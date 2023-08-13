@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { githubClient } from "../libs/client";
 import Back from "@/components/common/Back";
 import PageTitle from "@/components/common/PageTitle";
@@ -15,14 +16,25 @@ const Github = ({
   githubAccountUrl: AccountUrl;
   repoCategories: RepoCategories;
 }) => {
+  const [selectRepoCategory, setselectRepoCategory] = useState(
+    repoCategories[0].name
+  );
+
   return (
     <div className="flex items-center justify-center">
       <div>
         <Back />
         <PageTitle title="GitHub" />
         <AccountLink accountUrl={githubAccountUrl} />
-        <GitHubRepoCategoryList repoCategories={repoCategories} />
-        <GitHubRepoCategories repoCategories={repoCategories} />
+        <GitHubRepoCategoryList
+          repoCategories={repoCategories}
+          selectRepoCategory={selectRepoCategory}
+          setselectRepoCategory={setselectRepoCategory}
+        />
+        <GitHubRepoCategories
+          repoCategories={repoCategories}
+          selectRepoCategory={selectRepoCategory}
+        />
       </div>
     </div>
   );

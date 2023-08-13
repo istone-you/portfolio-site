@@ -40,7 +40,7 @@ const SkillCategoryTab = ({
               selectSkill === skillCategory.name ? "text-white" : "bg-white"
             } ${
               selectSkill === skillCategory.name
-                ? "shadow-none translate-y-1 hover:translate-x-1"
+                ? "shadow-none translate-y-1 translate-x-1"
                 : ""
             } px-4 py-1 font-bold border border-black button-shadow `}
           >

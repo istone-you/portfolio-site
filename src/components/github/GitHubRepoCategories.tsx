@@ -1,25 +1,32 @@
 import GitHubRepos from "./GitHubRepos";
 
-import type { RepoCategories, RepoCategory } from "@/types/github";
+import type {
+  RepoCategories,
+  RepoCategory,
+  SelectRepoCategory,
+} from "@/types/github";
 
 const GitHubRepoCategories = ({
   repoCategories,
+  selectRepoCategory,
 }: {
   repoCategories: RepoCategories;
+  selectRepoCategory: SelectRepoCategory;
 }) => {
   return (
     <>
       {repoCategories.map((repoCategory: RepoCategory) => (
-        <div
-          className="fade-in-second"
-          key={repoCategory.name}
-          id={repoCategory.name}
-        >
-          <h1 className="text-3xl mt-12 flex items-center justify-center">
-            {repoCategory.name}
-          </h1>
-          <GitHubRepos repoCategory={repoCategory} />
-        </div>
+        <>
+          {selectRepoCategory == repoCategory.name && (
+            <div
+              className="fade-in-second"
+              key={repoCategory.name}
+              id={repoCategory.name}
+            >
+              <GitHubRepos repoCategory={repoCategory} />
+            </div>
+          )}
+        </>
       ))}
     </>
   );

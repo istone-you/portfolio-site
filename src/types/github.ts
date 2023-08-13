@@ -18,3 +18,8 @@ export interface Repository {
   url: string;
   category: RepoCategory;
 }
+
+export type SelectRepoCategory = string;
+export type SetSelectRepoCategory = React.Dispatch<
+  React.SetStateAction<string>
+>;

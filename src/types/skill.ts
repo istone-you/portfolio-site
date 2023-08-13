@@ -9,12 +9,12 @@ export interface SkillCategory {
 
 export type SkillCategories = SkillCategory[];
 
-export type SelectSkill = string;
-export type SetSelectSkill = React.Dispatch<React.SetStateAction<string>>;
-
 export interface Skill {
   name: string;
   image: {
     url: string;
   };
 }
+
+export type SelectSkill = string;
+export type SetSelectSkill = React.Dispatch<React.SetStateAction<string>>;

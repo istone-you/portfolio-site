@@ -4,7 +4,7 @@ import type { Pages, Page } from "@/types/index";
 
 const PageCards = ({ pages }: { pages: Pages }) => {
   return (
-    <div className="lg:mx-24 xl:mx-72 flex flex-wrap items-center justify-center">
+    <div className="lg:mx-24 xl:mx-40 flex flex-wrap items-center justify-center">
       {pages.map((page: Page) => (
         <div className="fade-in-third px-12" key={page.id}>
           <Link href={page.path} className="hover:no-underline">

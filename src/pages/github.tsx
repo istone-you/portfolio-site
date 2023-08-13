@@ -29,7 +29,7 @@ const Github = ({
 export const getStaticProps = async () => {
   const [githubAccount, repository, category] = await Promise.all([
     githubClient.get({ endpoint: "account" }),
-    githubClient.get({ endpoint: "repo" }),
+    githubClient.get({ endpoint: "repo", queries: { limit: 100 } }),
     githubClient.get({ endpoint: "category" }),
   ]);
 

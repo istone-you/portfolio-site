@@ -1,6 +1,7 @@
 import { indexClient } from "../libs/client";
 import Back from "@/components/common/Back";
 import PageTitle from "@/components/common/PageTitle";
+import Description from "@/components/inquiry/Description";
 import Form from "@/components/inquiry/Form";
 
 import type { Index } from "@/types/index";
@@ -11,6 +12,7 @@ const Inquiry = ({ index }: { index: Index }) => {
       <div className="w-1/2">
         <Back />
         <PageTitle title="Inquiry Form" />
+        <Description index={index} />
         <Form index={index} />
       </div>
     </div>

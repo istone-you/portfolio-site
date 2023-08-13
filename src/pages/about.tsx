@@ -18,6 +18,7 @@ const About = ({ index }: { index: Index }) => {
     </div>
   );
 };
+
 export const getStaticProps = async () => {
   const index = await indexClient.get({ endpoint: "index" });
 

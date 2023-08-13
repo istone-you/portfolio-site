@@ -37,6 +37,10 @@
   .card-shadow {
     box-shadow: 15px 15px 0px 0px black;
   }
+
+  .button-shadow {
+    box-shadow: 5px 5px 0px 0px black;
+  }
 }
 
 @layer components {

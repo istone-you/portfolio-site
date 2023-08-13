@@ -10,7 +10,7 @@ const Contact = ({ index }: { index: Index }) => {
         <a href={`mailto:${index.email}`}>Email</a>（{index.email}）,
         <a href={index.twitter}>Twitter&nbsp;</a>
         or this&nbsp;
-        <Link href="/form">Form</Link>
+        <Link href="/inquiry">Form</Link>
       </p>
     </div>
   );

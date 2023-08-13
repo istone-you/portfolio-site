@@ -7,6 +7,7 @@ export interface Index {
   email: string;
   twitter: string;
   about: string;
+  inquiry: string;
 }
 
 export interface Page {

@@ -7,11 +7,14 @@ const GitHubRepoCategories = ({
 }: {
   repoCategories: RepoCategories;
 }) => {
-  console.log(repoCategories);
   return (
     <>
       {repoCategories.map((repoCategory: RepoCategory) => (
-        <div className="fade-in-second" key={repoCategory.name}>
+        <div
+          className="fade-in-second"
+          key={repoCategory.name}
+          id={repoCategory.name}
+        >
           <h1 className="text-3xl mt-12 flex items-center justify-center">
             {repoCategory.name}
           </h1>

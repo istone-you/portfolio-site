@@ -2,6 +2,7 @@ import { githubClient } from "../libs/client";
 import Back from "@/components/common/Back";
 import PageTitle from "@/components/common/PageTitle";
 import AccountLink from "@/components/common/AccountLink";
+import GitHubRepoCategoryList from "@/components/github/GitHubRepoCategoryList";
 import GitHubRepoCategories from "@/components/github/GitHubRepoCategories";
 
 import type { RepoCategory, Repository, RepoCategories } from "@/types/github";
@@ -20,6 +21,7 @@ const Github = ({
         <Back />
         <PageTitle title="GitHub" />
         <AccountLink accountUrl={githubAccountUrl} />
+        <GitHubRepoCategoryList repoCategories={repoCategories} />
         <GitHubRepoCategories repoCategories={repoCategories} />
       </div>
     </div>

@@ -15,14 +15,16 @@ const Form = ({ index }: { index: Index }) => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const isConfirmed = window.confirm("この内容で送信しますか?");
-
     const formData: FormData = {
       email,
       name,
       subject,
       message,
     };
+
+    const isConfirmed = window.confirm(
+      `下記内容でお間違いないですか？\n\nメールアドレス： ${formData.email}\nお名前： ${formData.name}\n件名： ${formData.subject}`
+    );
 
     if (isConfirmed) {
       try {
@@ -35,7 +37,9 @@ const Form = ({ index }: { index: Index }) => {
         });
 
         if (response.ok) {
-          window.alert("送信されました！");
+          window.alert(
+            "送信に成功しました。お問い合わせありがとうございます！\n確認次第ご連絡いたします。"
+          );
 
           setEmail("");
           setName("");

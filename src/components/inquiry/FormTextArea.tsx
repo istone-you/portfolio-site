@@ -12,7 +12,7 @@ const FormTextArea = (props: FormTextAreaProps) => {
         value={props.value}
         onChange={props.onChange}
         required
-        className="h-40 border border-black text-gray-900 text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        className="h-40 border-2 border-black rounded-lg text-sm  focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
       />
     </div>
   );

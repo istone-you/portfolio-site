@@ -19,7 +19,7 @@ const Title = ({ index }: { index: Index }) => {
           {index.greeting}
         </h1>
       </div>
-      <p className="fade-in-second mx-8 md:text-xl font-normal flex items-center justify-center">
+      <p className="fade-in-second mx-12 md:text-xl font-normal flex items-center justify-center">
         <b>{index.thanks}</b>
       </p>
     </>

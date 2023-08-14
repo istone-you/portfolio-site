@@ -4,7 +4,7 @@ import type { Index } from "@/types/index";
 
 const Profile = ({ index }: { index: Index }) => {
   return (
-    <div className="fade-in-second mx-4">
+    <div className="fade-in-second mx-8">
       <div className="flex items-center justify-center">
         <Image
           src={index.thumbnail.url}

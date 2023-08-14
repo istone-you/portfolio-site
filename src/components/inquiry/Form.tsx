@@ -55,7 +55,7 @@ const Form = ({ index }: { index: Index }) => {
   };
 
   return (
-    <div className="fade-in-second max-w-3xl mx-auto mb-10 flex items-center justify-center">
+    <div className="fade-in-second max-w-3xl mx-auto px-2 mb-10 flex items-center justify-center">
       <form onSubmit={handleSubmit} className="w-full">
         <FormInput
           label="Email"

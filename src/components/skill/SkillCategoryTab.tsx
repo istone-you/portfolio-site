@@ -16,7 +16,7 @@ const SkillCategoryTab = ({
   return (
     <ul className="fade-in-second mb-12 flex flex-wrap items-center justify-center text-sm font-medium text-center">
       {skillCategories.map((skillCategory) => (
-        <div key={skillCategory.name} className="mx-2 my-2 list-none">
+        <div key={skillCategory.name} className="mx-2 my-2">
           <div
             onClick={() => setSelectSkill(skillCategory.name)}
             onKeyDown={(e) => {

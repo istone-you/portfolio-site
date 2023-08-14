@@ -19,7 +19,7 @@ const SkillList = ({
                 {skillCategory.business}
               </p>
               <div className="mx-auto">
-                <div className="flex flex-wrap items-center justify-center">
+                <div className="flex flex-wrap items-start justify-center">
                   {skillCategory.business_skill.map((business_skill) => (
                     <SkillItem
                       skill={business_skill}

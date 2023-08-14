@@ -10,16 +10,13 @@ const SkillItem = ({
   skillCategory: SkillCategory;
 }) => {
   return (
-    <div
-      className={`mx-6 mb-12 ${skillCategory.name == "AWS" ? "w-40" : "w-24"}`}
-      key={skill.name}
-    >
+    <div className={"mx-6 mb-12 w-24"} key={skill.name}>
       <div className="flex items-center justify-center">
         <Image src={skill.image.url} alt="" width={80} height={80} />
       </div>
-      <div className="flex items-center justify-center">
-        <b>{skill.name}</b>
-      </div>
+      <b className="flex items-center justify-center text-center">
+        {skill.name}
+      </b>
     </div>
   );
 };

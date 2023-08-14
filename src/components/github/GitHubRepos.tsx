@@ -4,7 +4,7 @@ import type { RepoCategory, Repository } from "@/types/github";
 
 const GitHubRepos = ({ repoCategory }: { repoCategory: RepoCategory }) => {
   return (
-    <div className="mx-auto max-w-3xl">
+    <div className="mx-auto px-2 max-w-3xl">
       {repoCategory.repositories.map((repository: Repository) => (
         <div className="flex items-center justify-center" key={repository.id}>
           <div className="w-full my-6 py-8 px-6 sm:px-24 text-black bg-white border-2 border-black rounded-lg">

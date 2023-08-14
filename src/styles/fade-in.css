@@ -20,7 +20,7 @@
 .fade-in-second {
   animation-name: fadeInSecond;
   animation-duration: 1s;
-  animation-delay: 0.5s;
+  animation-delay: 0.25s;
   animation-fill-mode: forwards;
   opacity: 0;
 }
@@ -40,7 +40,7 @@
 .fade-in-third {
   animation-name: fadeInThird;
   animation-duration: 1s;
-  animation-delay: 1s;
+  animation-delay: 0.5s;
   animation-fill-mode: forwards;
   opacity: 0;
 }

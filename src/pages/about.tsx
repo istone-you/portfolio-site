@@ -1,5 +1,5 @@
 import { indexClient } from "../libs/client";
-import Back from "@/components/common/Back";
+import BackButton from "@/components/common/HomeButton";
 import PageTitle from "@/components/common/PageTitle";
 import Profile from "@/components/about/Profile";
 import Contact from "@/components/index/Contact";
@@ -10,7 +10,7 @@ const About = ({ index }: { index: Index }) => {
   return (
     <div className="flex items-center justify-center">
       <div>
-        <Back />
+        <BackButton />
         <PageTitle title="About" />
         <Profile index={index} />
         <Contact index={index} />

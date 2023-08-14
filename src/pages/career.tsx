@@ -1,5 +1,5 @@
 import { careerClient } from "../libs/client";
-import Back from "@/components/common/Back";
+import HomeButton from "@/components/common/HomeButton";
 import PageTitle from "@/components/common/PageTitle";
 import CareerContents from "@/components/career/CareerContents";
 
@@ -9,7 +9,7 @@ const Career = ({ companies }: { companies: Companies }) => {
   return (
     <div className="flex items-center justify-center">
       <div>
-        <Back />
+        <HomeButton />
         <PageTitle title="Career" />
         <CareerContents companies={companies} />
       </div>

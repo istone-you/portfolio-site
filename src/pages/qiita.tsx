@@ -1,5 +1,5 @@
 import { qiitaClient } from "../libs/client";
-import Back from "@/components/common/Back";
+import HomeButton from "@/components/common/HomeButton";
 import PageTitle from "@/components/common/PageTitle";
 import AccountLink from "@/components/common/AccountLink";
 import QiitaArticles from "@/components/qiita/QiitaArticles";
@@ -17,7 +17,7 @@ const Qiita = ({
   return (
     <div className="flex items-center justify-center">
       <div>
-        <Back />
+        <HomeButton />
         <PageTitle title="Qiita" />
         <AccountLink accountUrl={qiitaAccountUrl} />
         <QiitaArticles articles={articles} />

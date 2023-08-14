@@ -10,7 +10,7 @@ const SkillItem = ({
   skillCategory: SkillCategory;
 }) => {
   return (
-    <div className={"mx-6 mb-12 w-24"} key={skill.name}>
+    <div className={"fade-in-second mx-6 mb-12 w-24"} key={skill.name}>
       <div className="flex items-center justify-center">
         <Image src={skill.image.url} alt="" width={80} height={80} />
       </div>

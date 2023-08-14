@@ -5,7 +5,7 @@ import type {
   SetSelectRepoCategory,
 } from "@/types/github";
 
-const GitHubRepoCategoryList = ({
+const GitHubCategoryTab = ({
   repoCategories,
   selectRepoCategory,
   setselectRepoCategory,
@@ -53,4 +53,4 @@ const GitHubRepoCategoryList = ({
   );
 };
 
-export default GitHubRepoCategoryList;
+export default GitHubCategoryTab;

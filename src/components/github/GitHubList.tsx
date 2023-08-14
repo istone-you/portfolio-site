@@ -1,12 +1,13 @@
-import GitHubRepos from "./GitHubRepos";
+import GitHubRepo from "./GitHubRepo";
 
 import type {
   RepoCategories,
   RepoCategory,
+  Repository,
   SelectRepoCategory,
 } from "@/types/github";
 
-const GitHubRepoCategories = ({
+const GitHubList = ({
   repoCategories,
   selectRepoCategory,
 }: {
@@ -23,7 +24,11 @@ const GitHubRepoCategories = ({
               key={repoCategory.name}
               id={repoCategory.name}
             >
-              <GitHubRepos repoCategory={repoCategory} />
+              <div className="mx-auto px-2 max-w-3xl">
+                {repoCategory.repositories.map((repository: Repository) => (
+                  <GitHubRepo key={repository.id} repository={repository} />
+                ))}
+              </div>
             </div>
           )}
         </>
@@ -32,4 +37,4 @@ const GitHubRepoCategories = ({
   );
 };
 
-export default GitHubRepoCategories;
+export default GitHubList;

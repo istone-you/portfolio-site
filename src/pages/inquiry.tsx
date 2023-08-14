@@ -1,5 +1,5 @@
 import { indexClient } from "../libs/client";
-import Back from "@/components/common/Back";
+import HomeButton from "@/components/common/HomeButton";
 import PageTitle from "@/components/common/PageTitle";
 import Description from "@/components/inquiry/Description";
 import Form from "@/components/inquiry/Form";
@@ -10,7 +10,7 @@ const Inquiry = ({ index }: { index: Index }) => {
   return (
     <div className="flex items-center justify-center">
       <div>
-        <Back />
+        <HomeButton />
         <PageTitle title="Inquiry Form" />
         <Description index={index} />
         <Form index={index} />

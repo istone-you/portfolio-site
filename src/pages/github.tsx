@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { githubClient } from "../libs/client";
-import Back from "@/components/common/Back";
+import HomeButton from "@/components/common/HomeButton";
 import PageTitle from "@/components/common/PageTitle";
 import AccountLink from "@/components/common/AccountLink";
-import GitHubRepoCategoryList from "@/components/github/GitHubRepoCategoryList";
-import GitHubRepoCategories from "@/components/github/GitHubRepoCategories";
+import GitHubCategoryTab from "@/components/github/GitHubCategoryTab";
+import GitHubList from "@/components/github/GitHubList";
 
 import type { RepoCategory, Repository, RepoCategories } from "@/types/github";
 import type { AccountUrl } from "@/types/common";
@@ -23,15 +23,15 @@ const Github = ({
   return (
     <div className="flex items-center justify-center">
       <div>
-        <Back />
+        <HomeButton />
         <PageTitle title="GitHub" />
         <AccountLink accountUrl={githubAccountUrl} />
-        <GitHubRepoCategoryList
+        <GitHubCategoryTab
           repoCategories={repoCategories}
           selectRepoCategory={selectRepoCategory}
           setselectRepoCategory={setselectRepoCategory}
         />
-        <GitHubRepoCategories
+        <GitHubList
           repoCategories={repoCategories}
           selectRepoCategory={selectRepoCategory}
         />

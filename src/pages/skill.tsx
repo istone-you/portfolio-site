@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { skillClient } from "../libs/client";
-import Back from "@/components/common/Back";
+import HomeButton from "@/components/common/HomeButton";
 import PageTitle from "@/components/common/PageTitle";
 
 import SkillCategoryTab from "@/components/skill/SkillCategoryTab";
@@ -14,7 +14,7 @@ const Skill = ({ skillCategories }: { skillCategories: SkillCategories }) => {
   return (
     <div className="flex items-center justify-center">
       <div className="w-full">
-        <Back />
+        <HomeButton />
         <PageTitle title="Skill" />
         <SkillCategoryTab
           skillCategories={skillCategories}

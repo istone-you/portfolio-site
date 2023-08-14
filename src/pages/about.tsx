@@ -8,7 +8,7 @@ import type { Index } from "@/types/index";
 
 const About = ({ index }: { index: Index }) => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="center">
       <div>
         <BackButton />
         <PageTitle title="About" />

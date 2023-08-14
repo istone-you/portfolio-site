@@ -10,14 +10,12 @@ const SkillList = ({
   selectSkill: SelectSkill;
 }) => {
   return (
-    <ul className="fade-in-second mx-4 sm:mx-48 mb-12">
+    <ul className="fade-in-second mx-4 xl:mx-48 mb-12">
       {skillCategories.map((skillCategory) => (
         <div key={skillCategory.name}>
           {selectSkill === skillCategory.name && (
             <>
-              <p className="mb-12 flex items-center justify-center">
-                {skillCategory.business}
-              </p>
+              <p className="mb-12 center">{skillCategory.business}</p>
               <div className="mx-auto">
                 <div className="flex flex-wrap items-start justify-center">
                   {skillCategory.business_skill.map((business_skill) => (
@@ -29,10 +27,8 @@ const SkillList = ({
                   ))}
                 </div>
               </div>
-              <p className="mb-12 flex items-center justify-center">
-                {skillCategory.private}
-              </p>
-              <div className="flex flex-wrap items-center justify-center">
+              <p className="mb-12 center">{skillCategory.private}</p>
+              <div className="center-wrap">
                 {skillCategory.private_skill.map((private_skill) => (
                   <SkillItem
                     skill={private_skill}

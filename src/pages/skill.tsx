@@ -12,7 +12,7 @@ const Skill = ({ skillCategories }: { skillCategories: SkillCategories }) => {
   const [selectSkill, setSelectSkill] = useState("Ops");
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="center">
       <div className="w-full">
         <HomeButton />
         <PageTitle title="Skill" />

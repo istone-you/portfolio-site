@@ -6,15 +6,10 @@ const QiitaArticles = ({ articles }: { articles: Articles }) => {
   return (
     <div className="mx-auto mb-4 px-2 max-w-3xl">
       {articles.map((article: Article) => (
-        <div
-          className="fade-in-second w-full flex items-center justify-center"
-          key={article.id}
-        >
+        <div className="fade-in-second w-full center" key={article.id}>
           <div className="my-6 py-14 px-6 sm:px-24 content-card">
             <a href={article.url}>
-              <h1 className="text-xl flex items-center justify-center">
-                {article.title}
-              </h1>
+              <h1 className="text-xl center">{article.title}</h1>
             </a>
             <div
               dangerouslySetInnerHTML={{
@@ -22,11 +17,11 @@ const QiitaArticles = ({ articles }: { articles: Articles }) => {
               }}
               className="mt-4 font-normal"
             />
-            <div className="flex items-center justify-center">
+            <div className="center">
               <Image src={article.image.url} alt="" width={300} height={300} />
             </div>
             {article.comment ? (
-              <div className="mt-10 flex items-center justify-center content-card">
+              <div className="mt-10 center content-card">
                 <div
                   dangerouslySetInnerHTML={{
                     __html: article.comment,

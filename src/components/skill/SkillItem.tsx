@@ -11,12 +11,10 @@ const SkillItem = ({
 }) => {
   return (
     <div className={"fade-in-second mx-6 mb-12 w-24"} key={skill.name}>
-      <div className="flex items-center justify-center">
+      <div className="center">
         <Image src={skill.image.url} alt="" width={80} height={80} />
       </div>
-      <b className="flex items-center justify-center text-center">
-        {skill.name}
-      </b>
+      <b className="center text-center">{skill.name}</b>
     </div>
   );
 };

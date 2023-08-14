@@ -6,9 +6,7 @@ interface PageTitleProps {
 
 const PageTitle = (props: PageTitleProps) => {
   return (
-    <h1 className="fade-in-first text-5xl mt-16 mb-12 flex items-center justify-center">
-      {props.title}
-    </h1>
+    <h1 className="fade-in-first text-5xl mt-16 mb-12 center">{props.title}</h1>
   );
 };
 

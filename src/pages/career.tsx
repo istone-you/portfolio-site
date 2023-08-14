@@ -7,7 +7,7 @@ import type { Companies } from "@/types/career";
 
 const Career = ({ companies }: { companies: Companies }) => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="center">
       <div>
         <HomeButton />
         <PageTitle title="Career" />

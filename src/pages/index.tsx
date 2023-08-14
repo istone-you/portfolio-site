@@ -11,7 +11,7 @@ const inter = Inter({ subsets: ["latin"] });
 export default function Home({ index, pages }: { index: Index; pages: Pages }) {
   return (
     <main>
-      <div className="flex items-center justify-center">
+      <div className="center">
         <div>
           <Title index={index} />
           <PageCards pages={pages} />

@@ -15,11 +15,11 @@ const GitHubCategoryTab = ({
   setselectRepoCategory: SetSelectRepoCategory;
 }) => {
   return (
-    <ul className="fade-in-second my-10 flex flex-wrap items-center justify-center">
+    <ul className="fade-in-second my-10 center-wrap">
       {repoCategories.map((repoCategory: RepoCategory) => (
         <div
           key={repoCategory.name}
-          className="hover:cursor-pointer mb-2 mx-2 flex items-center justify-center"
+          className="hover:cursor-pointer mb-2 mx-2 center"
         >
           <div
             onClick={() => setselectRepoCategory(repoCategory.name)}

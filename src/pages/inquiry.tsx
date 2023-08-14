@@ -8,7 +8,7 @@ import type { Index } from "@/types/index";
 
 const Inquiry = ({ index }: { index: Index }) => {
   return (
-    <div className="flex items-center justify-center">
+    <div className="center">
       <div>
         <HomeButton />
         <PageTitle title="Inquiry Form" />

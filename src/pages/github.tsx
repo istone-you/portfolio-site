@@ -21,7 +21,7 @@ const Github = ({
   );
 
   return (
-    <div className="flex items-center justify-center">
+    <div className="center">
       <div>
         <HomeButton />
         <PageTitle title="GitHub" />

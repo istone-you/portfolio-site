@@ -8,7 +8,7 @@ const WorkContents = ({ company }: { company: Company }) => {
       {company.works.map((work: Work) => (
         <div key={work.id} className="mt-10">
           <div className="mb-4 mt-4 py-16 px-8 sm:px-20 text-black bg-white border-2 border-black rounded-lg">
-            <h2 className="mb-10 flex items-center justify-center">
+            <h2 className="mb-10 center">
               <b>{work.title}</b>
             </h2>
             <p>

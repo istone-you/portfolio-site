@@ -2,7 +2,7 @@ import type { FormButtonProps } from "@/types/inquiry";
 
 const FormButton = (props: FormButtonProps) => {
   return (
-    <div className="mt-6 flex items-center justify-center">
+    <div className="mt-6 center">
       <button type={props.type} className="text-black px-4 py-1 button-shadow">
         {props.label}
       </button>

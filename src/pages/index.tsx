@@ -4,7 +4,7 @@ import Title from "@/components/index/Title";
 import PageCards from "@/components/index/PageCards";
 import Contact from "@/components/index/Contact";
 
-import type { Index, Pages, Page } from "@/types/index";
+import type { Index, Pages } from "@/types/index";
 
 const inter = Inter({ subsets: ["latin"] });
 

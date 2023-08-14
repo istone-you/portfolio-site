@@ -5,12 +5,19 @@ import Description from "@/components/inquiry/Description";
 import Form from "@/components/inquiry/Form";
 
 import type { Index } from "@/types/index";
+import type { HomeButtonUrl } from "@/types/common";
 
-const Inquiry = ({ index }: { index: Index }) => {
+const Inquiry = ({
+  index,
+  homeButtonUrl,
+}: {
+  index: Index;
+  homeButtonUrl: HomeButtonUrl;
+}) => {
   return (
     <div className="center">
       <div>
-        <HomeButton />
+        <HomeButton homeButtonUrl={homeButtonUrl} />
         <PageTitle title="Inquiry Form" />
         <Description index={index} />
         <Form index={index} />
@@ -25,6 +32,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       index,
+      homeButtonUrl: index.homebutton.url,
     },
   };
 };

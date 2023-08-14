@@ -1,16 +1,23 @@
 import { indexClient } from "../libs/client";
-import BackButton from "@/components/common/HomeButton";
+import HomeButton from "@/components/common/HomeButton";
 import PageTitle from "@/components/common/PageTitle";
 import Profile from "@/components/about/Profile";
 import Contact from "@/components/index/Contact";
 
 import type { Index } from "@/types/index";
+import type { HomeButtonUrl } from "@/types/common";
 
-const About = ({ index }: { index: Index }) => {
+const About = ({
+  index,
+  homeButtonUrl,
+}: {
+  index: Index;
+  homeButtonUrl: HomeButtonUrl;
+}) => {
   return (
     <div className="center">
       <div>
-        <BackButton />
+        <HomeButton homeButtonUrl={homeButtonUrl} />
         <PageTitle title="About" />
         <Profile index={index} />
         <Contact index={index} />
@@ -25,6 +32,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       index,
+      homeButtonUrl: index.homebutton.url,
     },
   };
 };

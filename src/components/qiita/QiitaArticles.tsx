@@ -4,7 +4,7 @@ import type { Articles, Article } from "@/types/qiita";
 
 const QiitaArticles = ({ articles }: { articles: Articles }) => {
   return (
-    <div className="mx-auto px-2 max-w-3xl">
+    <div className="mx-auto mb-4 px-2 max-w-3xl">
       {articles.map((article: Article) => (
         <div
           className="fade-in-second w-full flex items-center justify-center"

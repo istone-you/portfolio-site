@@ -10,8 +10,8 @@ const Title = ({ index }: { index: Index }) => {
           <Image
             src={index.thumbnail.url}
             alt="thumbnail"
-            width={64}
-            height={64}
+            width={72}
+            height={72}
             className="mt-12 mb-6 rounded-full border border-black"
           />
         </div>

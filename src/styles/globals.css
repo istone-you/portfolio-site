@@ -23,7 +23,7 @@
   }
 
   a {
-    @apply text-blue-500 no-underline hover:underline font-bold;
+    @apply font-black underline hover:no-underline;
   }
 
   li {
@@ -34,8 +34,17 @@
     @apply bg-gray-100 p-1 rounded;
   }
 
-  .card-shadow {
+  .content-card {
+    @apply text-black bg-white border-2 border-black rounded-lg;
+  }
+
+  .index-card {
+    @apply text-black font-bold bg-white border-2 border-black rounded-lg transition-transform duration-300 transform hover:-translate-y-1 hover:no-underline;
+  }
+
+  .main-shadow {
     box-shadow: 15px 15px 0px 0px black;
+    @apply border-2 border-black;
   }
 
   .title-shadow {
@@ -45,7 +54,7 @@
 
   .button-shadow {
     box-shadow: 5px 5px 0px 0px black;
-    @apply text-black border border-black font-bold bg-gray-300 duration-75 hover:no-underline hover:shadow-none hover:translate-y-1 hover:translate-x-1;
+    @apply text-black border border-black font-bold bg-gray-300 duration-100 hover:shadow-none hover:translate-y-1 hover:translate-x-1;
   }
 }
 

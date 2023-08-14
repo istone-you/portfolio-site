@@ -17,7 +17,7 @@ const GitHubList = ({
   return (
     <>
       {repoCategories.map((repoCategory: RepoCategory) => (
-        <>
+        <div key={repoCategory.name}>
           {selectRepoCategory == repoCategory.name && (
             <div
               className="fade-in-second"
@@ -26,12 +26,14 @@ const GitHubList = ({
             >
               <div className="mx-auto px-2 max-w-3xl">
                 {repoCategory.repositories.map((repository: Repository) => (
-                  <GitHubRepo key={repository.id} repository={repository} />
+                  <div key={repository.id}>
+                    <GitHubRepo repository={repository} />
+                  </div>
                 ))}
               </div>
             </div>
           )}
-        </>
+        </div>
       ))}
     </>
   );

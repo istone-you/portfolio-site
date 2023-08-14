@@ -10,7 +10,7 @@ const QiitaArticles = ({ articles }: { articles: Articles }) => {
           className="fade-in-second w-full flex items-center justify-center"
           key={article.id}
         >
-          <div className="my-6 py-14 px-6 sm:px-24 text-black bg-white border-2 border-black rounded-lg">
+          <div className="my-6 py-14 px-6 sm:px-24 content-card">
             <a href={article.url}>
               <h1 className="text-xl flex items-center justify-center">
                 {article.title}
@@ -26,7 +26,7 @@ const QiitaArticles = ({ articles }: { articles: Articles }) => {
               <Image src={article.image.url} alt="" width={300} height={300} />
             </div>
             {article.comment ? (
-              <div className="mt-10 flex items-center justify-center bg-white border-2 border-gray-200 rounded-lg dark:border-gray-700">
+              <div className="mt-10 flex items-center justify-center content-card">
                 <div
                   dangerouslySetInnerHTML={{
                     __html: article.comment,

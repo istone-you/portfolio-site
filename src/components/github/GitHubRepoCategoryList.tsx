@@ -17,9 +17,9 @@ const GitHubRepoCategoryList = ({
   return (
     <ul className="fade-in-second my-10 flex flex-wrap items-center justify-center">
       {repoCategories.map((repoCategory: RepoCategory) => (
-        <li
-          key={repoCategory.id}
-          className="hover:cursor-pointer mb-2 flex items-center justify-center"
+        <div
+          key={repoCategory.name}
+          className="hover:cursor-pointer mb-2 mx-2 flex items-center justify-center"
         >
           <div
             onClick={() => setselectRepoCategory(repoCategory.name)}
@@ -47,7 +47,7 @@ const GitHubRepoCategoryList = ({
           >
             {repoCategory.name}
           </div>
-        </li>
+        </div>
       ))}
     </ul>
   );

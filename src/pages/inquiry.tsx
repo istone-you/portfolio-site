@@ -9,7 +9,7 @@ import type { Index } from "@/types/index";
 const Inquiry = ({ index }: { index: Index }) => {
   return (
     <div className="flex items-center justify-center">
-      <div className="w-1/2">
+      <div>
         <Back />
         <PageTitle title="Inquiry Form" />
         <Description index={index} />

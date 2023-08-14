@@ -12,7 +12,7 @@ const Skill = ({ skillCategories }: { skillCategories: SkillCategories }) => {
   const [selectSkill, setSelectSkill] = useState("Ops");
 
   return (
-    <div className="mx-48 flex items-center justify-center">
+    <div className="flex items-center justify-center">
       <div className="w-full">
         <Back />
         <PageTitle title="Skill" />

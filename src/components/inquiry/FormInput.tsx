@@ -3,10 +3,8 @@ import type { FormInputProps } from "@/types/inquiry";
 const FormInput = (props: FormInputProps) => {
   return (
     <div className="mt-10">
-      <label className=" flex items-center justify-center mb-6 font-bold text-gray-900">
-        <div className="px-4 py-1 button-shadow border border-black">
-          {props.label}
-        </div>
+      <label className=" flex items-center justify-center mb-6 text-gray-900">
+        <div className="px-4 py-1 title-shadow">{props.label}</div>
       </label>
       <input
         type={props.type}

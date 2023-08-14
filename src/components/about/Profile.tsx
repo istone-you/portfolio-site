@@ -5,17 +5,17 @@ import type { Index } from "@/types/index";
 const Profile = ({ index }: { index: Index }) => {
   return (
     <div className="fade-in-second mx-8">
+      <div className="mb-2 flex items-center justify-center">
+        <h1 className="text-2xl px-10 py-1 title-shadow">石井 湧</h1>
+      </div>
       <div className="flex items-center justify-center">
         <Image
           src={index.thumbnail.url}
           alt="thumbnail"
           width={100}
           height={100}
-          className="mt-12 mb-6 rounded-full border border-black"
+          className=" mb-6 rounded-full border border-black"
         />
-      </div>
-      <div className="mb-12 flex items-center justify-center">
-        <h1 className="text-2xl">石井 湧</h1>
       </div>
       <div
         className="prose"

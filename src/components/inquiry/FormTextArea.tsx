@@ -4,9 +4,7 @@ const FormTextArea = (props: FormTextAreaProps) => {
   return (
     <div className="mt-10">
       <label className="flex items-center justify-center mb-6 font-bold text-gray-900">
-        <div className="px-4 py-1 button-shadow border border-black ">
-          {props.label}
-        </div>
+        <div className="px-4 py-1 title-shadow">{props.label}</div>
       </label>
       <textarea
         value={props.value}

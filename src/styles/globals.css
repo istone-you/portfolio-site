@@ -38,8 +38,14 @@
     box-shadow: 15px 15px 0px 0px black;
   }
 
+  .title-shadow {
+    box-shadow: 5px 5px 0px 0px black;
+    @apply border border-black font-bold;
+  }
+
   .button-shadow {
     box-shadow: 5px 5px 0px 0px black;
+    @apply text-black border border-black font-bold bg-gray-300 duration-75 hover:no-underline hover:shadow-none hover:translate-y-1 hover:translate-x-1;
   }
 }
 

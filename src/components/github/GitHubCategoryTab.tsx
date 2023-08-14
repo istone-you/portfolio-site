@@ -23,7 +23,7 @@ const GitHubCategoryTab = ({
         >
           <div
             onClick={() => setselectRepoCategory(repoCategory.name)}
-            className={`text-black px-4 py-1 font-bold border border-black button-shadow ${
+            className={`text-black px-4 py-1 title-shadow ${
               selectRepoCategory == repoCategory.name
                 ? "pointer-events-none"
                 : "pointer-events-auto"

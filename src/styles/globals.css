@@ -64,7 +64,7 @@
 
   .button-shadow {
     box-shadow: 5px 5px 0px 0px black;
-    @apply text-black border border-black font-bold bg-gray-300 duration-100 hover:shadow-none hover:translate-y-1 hover:translate-x-1;
+    @apply text-black border border-black font-bold bg-gray-300 duration-100 group-hover:shadow-none group-hover:translate-y-1 group-hover:translate-x-1;
   }
 
   .form {

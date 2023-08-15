@@ -5,22 +5,23 @@ const Description = ({ index }: { index: Index }) => {
     <div className="fade-in-second">
       <p className="center">お問い合わせフォームです。</p>
       <div className="center-wrap">
-        <div className="center-wrap">
-          <p>メールでのお問い合わせは&nbsp;</p>
-          <a href={`mailto:${index.email}`} className="no-underline">
-            <div className="mr-2 px-2 py-0.5 button-shadow -translate-y-2">
-              こちら
-            </div>
+        <p className="center-wrap">
+          メールでのお問い合わせは&nbsp;
+          <a href={`mailto:${index.email}`} className="no-underline group">
+            <div className="mr-2 px-2 py-0.5 button-shadow">こちら</div>
           </a>
-        </div>
-        <div className="center-wrap">
-          <p>Twitterでのお問い合わせは</p>
-          <a href={index.twitter} className="no-underline">
-            <div className="mr-2 px-2 py-0.5 button-shadow -translate-y-2">
-              こちら
-            </div>
+        </p>
+        <p className="center-wrap">
+          Twitterでのお問い合わせは&nbsp;
+          <a
+            href={index.twitter}
+            className="no-underline group"
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            <div className="mr-2 px-2 py-0.5 button-shadow">こちら</div>
           </a>
-        </div>
+        </p>
       </div>
     </div>
   );

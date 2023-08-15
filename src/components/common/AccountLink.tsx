@@ -6,9 +6,11 @@ const AccountLink = ({ accountUrl }: { accountUrl: AccountUrl }) => {
       アカウントは
       <a
         href={accountUrl}
-        className="mx-1 px-3 py-0.5 button-shadow no-underline"
+        target="_blank"
+        rel="noopener noreferrer nofollow"
+        className="no-underline group"
       >
-        こちら
+        <div className="mx-1 px-3 py-0.5 button-shadow">こちら</div>
       </a>
     </p>
   );

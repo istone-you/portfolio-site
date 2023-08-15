@@ -8,7 +8,11 @@ const QiitaArticles = ({ articles }: { articles: Articles }) => {
       {articles.map((article: Article) => (
         <div className="fade-in-second w-full center" key={article.id}>
           <div className="my-6 py-14 px-6 sm:px-24 content-card">
-            <a href={article.url}>
+            <a
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer nofollow"
+            >
               <h1 className="text-xl center">{article.title}</h1>
             </a>
             <div

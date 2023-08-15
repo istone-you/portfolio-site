@@ -15,7 +15,7 @@ const SkillList = ({
         <div key={skillCategory.name}>
           {selectSkill === skillCategory.name && (
             <>
-              <p className="mb-12 center">{skillCategory.business}</p>
+              <p className="font-bold mb-12 center">{skillCategory.business}</p>
               <div className="mx-auto">
                 <div className="flex flex-wrap items-start justify-center">
                   {skillCategory.business_skill.map((business_skill) => (
@@ -27,7 +27,7 @@ const SkillList = ({
                   ))}
                 </div>
               </div>
-              <p className="mb-12 center">{skillCategory.private}</p>
+              <p className="font-bold mb-12 center">{skillCategory.private}</p>
               <div className="center-wrap">
                 {skillCategory.private_skill.map((private_skill) => (
                   <SkillItem

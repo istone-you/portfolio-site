@@ -13,7 +13,7 @@ const CareerContents = ({ companies }: { companies: Companies }) => {
               <h1 className="mx-6 px-10 py-2 title-shadow text-xl center">
                 {company.name}
               </h1>
-              <p className="center">{company.period}</p>
+              <p className="font-bold center">{company.period}</p>
             </div>
           </div>
           <WorkContents company={company} />

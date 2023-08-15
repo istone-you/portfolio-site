@@ -2,7 +2,7 @@ import type { AccountUrl } from "@/types/common";
 
 const AccountLink = ({ accountUrl }: { accountUrl: AccountUrl }) => {
   return (
-    <p className="fade-in-second center">
+    <p className="fade-in-second font-bold center">
       アカウントは
       <a
         href={accountUrl}

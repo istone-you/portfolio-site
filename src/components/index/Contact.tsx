@@ -6,7 +6,7 @@ const Contact = ({ index }: { index: Index }) => {
   return (
     <div className="fade-in-third mt-16 mb-2 mx-auto px-4 center">
       <div>
-        <p className="center">You can contact me via</p>
+        <p className="font-bold center">You can contact me via</p>
         <div className="center-wrap">
           <div>
             <a href={`mailto:${index.email}`} className="no-underline group">

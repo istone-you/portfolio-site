@@ -14,6 +14,7 @@ export interface Skill {
   image: {
     url: string;
   };
+  url: string;
 }
 
 export type SelectSkill = string;

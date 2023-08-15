@@ -9,13 +9,15 @@ const GitHubRepo = ({ repository }: { repository: Repository }) => {
         className="w-full my-6 py-8 px-6 sm:px-24 content-card"
         key={repository.id}
       >
-        <a
-          href={repository.url}
-          target="_blank"
-          rel="noopener noreferrer nofollow"
-        >
-          <h1 className="sm:text-2xl center">{repository.title} </h1>
-        </a>
+        <h1 className="sm:text-2xl center">
+          <a
+            href={repository.url}
+            target="_blank"
+            rel="noopener noreferrer nofollow"
+          >
+            {repository.title}
+          </a>
+        </h1>
         <div
           dangerouslySetInnerHTML={{
             __html: repository.detail,

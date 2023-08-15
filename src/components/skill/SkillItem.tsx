@@ -1,21 +1,25 @@
 import Image from "next/image";
 
-import type { Skill, SkillCategory } from "@/types/skill";
+import type { Skill } from "@/types/skill";
 
-const SkillItem = ({
-  skill,
-  skillCategory,
-}: {
-  skill: Skill;
-  skillCategory: SkillCategory;
-}) => {
+const SkillItem = ({ skill }: { skill: Skill }) => {
   return (
-    <div className={"fade-in-second mx-6 mb-12 w-24"} key={skill.name}>
-      <div className="center">
-        <Image src={skill.image.url} alt="" width={80} height={80} />
+    <a
+      href={skill.url}
+      target="_blank"
+      rel="noopener noreferrer nofollow"
+      className={
+        "fade-in-second mx-6 mb-12 w-24 no-underline group hover:cursor-pointer"
+      }
+      key={skill.name}
+    >
+      <div className="duration-200 group-hover:-translate-y-3">
+        <div className="center">
+          <Image src={skill.image.url} alt="" width={80} height={80} />
+        </div>
+        <p className="center text-center text-base">{skill.name}</p>
       </div>
-      <b className="center text-center">{skill.name}</b>
-    </div>
+    </a>
   );
 };
 

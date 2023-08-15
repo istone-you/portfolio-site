@@ -20,7 +20,7 @@ const Contact = ({ index }: { index: Index }) => {
             rel="noopener noreferrer nofollow"
           >
             <div className="mb-3 mr-2 px-4 py-1 button-shadow ">
-              Twitter&nbsp;
+              &nbsp;X&nbsp;
             </div>
           </a>
           <Link href="/inquiry" className="no-underline group">

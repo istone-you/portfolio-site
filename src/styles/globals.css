@@ -23,7 +23,7 @@
   }
 
   a {
-    @apply font-black underline hover:no-underline;
+    @apply font-bold underline hover:no-underline;
   }
 
   li {

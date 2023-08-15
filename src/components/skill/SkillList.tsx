@@ -21,7 +21,6 @@ const SkillList = ({
                   {skillCategory.business_skill.map((business_skill) => (
                     <SkillItem
                       skill={business_skill}
-                      skillCategory={skillCategory}
                       key={business_skill.name}
                     />
                   ))}
@@ -30,11 +29,7 @@ const SkillList = ({
               <p className="font-bold mb-12 center">{skillCategory.private}</p>
               <div className="center-wrap">
                 {skillCategory.private_skill.map((private_skill) => (
-                  <SkillItem
-                    skill={private_skill}
-                    skillCategory={skillCategory}
-                    key={private_skill.name}
-                  />
+                  <SkillItem skill={private_skill} key={private_skill.name} />
                 ))}
               </div>
             </>

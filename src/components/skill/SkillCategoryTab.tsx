@@ -14,7 +14,7 @@ const SkillCategoryTab = ({
   setSelectSkill: SetSelectSkill;
 }) => {
   return (
-    <ul className="fade-in-second mb-12 center-wrap text-sm font-medium text-center">
+    <ul className="fade-in-second mb-12 center-wrap">
       {skillCategories.map((skillCategory) => (
         <div key={skillCategory.name} className="mx-2 my-2">
           <div
@@ -26,7 +26,7 @@ const SkillCategoryTab = ({
             }}
             role="button"
             tabIndex={0}
-            className={`w-48 ${
+            className={`${
               selectSkill === skillCategory.name
                 ? "pointer-events-none"
                 : "pointer-events-auto"
@@ -42,7 +42,7 @@ const SkillCategoryTab = ({
               selectSkill === skillCategory.name
                 ? "shadow-none translate-y-1 translate-x-1"
                 : ""
-            } px-4 py-1 title-shadow`}
+            } px-8 py-1 title-shadow`}
           >
             {skillCategory.name}
           </div>

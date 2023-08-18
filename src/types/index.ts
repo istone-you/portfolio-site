@@ -8,6 +8,9 @@ export interface Index {
   twitter: string;
   about: string;
   inquiry: string;
+  twitterlogo: {
+    url: string;
+  };
 }
 
 export interface Page {

@@ -38,10 +38,12 @@ const Skill = ({
 };
 
 export const getStaticProps = async () => {
-  const skillCategories = await skillClient.get({
-    endpoint: "category",
-  });
-  const index = await indexClient.get({ endpoint: "index" });
+  const [skillCategories, index] = await Promise.all([
+    skillClient.get({
+      endpoint: "category",
+    }),
+    indexClient.get({ endpoint: "index" }),
+  ]);
 
   return {
     props: {

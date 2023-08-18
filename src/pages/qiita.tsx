@@ -30,11 +30,11 @@ const Qiita = ({
 };
 
 export const getStaticProps = async () => {
-  const [qiitaAccount, articles] = await Promise.all([
+  const [qiitaAccount, articles, index] = await Promise.all([
     qiitaClient.get({ endpoint: "account" }),
     qiitaClient.get({ endpoint: "article" }),
+    indexClient.get({ endpoint: "index" }),
   ]);
-  const index = await indexClient.get({ endpoint: "index" });
 
   return {
     props: {

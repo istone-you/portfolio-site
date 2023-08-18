@@ -44,12 +44,12 @@ const Github = ({
 };
 
 export const getStaticProps = async () => {
-  const [githubAccount, repository, category] = await Promise.all([
+  const [githubAccount, repository, category, index] = await Promise.all([
     githubClient.get({ endpoint: "account" }),
     githubClient.get({ endpoint: "repo", queries: { limit: 100 } }),
     githubClient.get({ endpoint: "category" }),
+    indexClient.get({ endpoint: "index" }),
   ]);
-  const index = await indexClient.get({ endpoint: "index" });
 
   const repoCategories = category.contents.map((cat: RepoCategory) => ({
     name: cat.name,

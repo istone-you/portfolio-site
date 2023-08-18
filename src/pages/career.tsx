@@ -26,11 +26,13 @@ const Career = ({
 };
 
 export const getStaticProps = async () => {
-  const companies = await careerClient.get({
-    endpoint: "company",
-    queries: { limit: 100 },
-  });
-  const index = await indexClient.get({ endpoint: "index" });
+  const [companies, index] = await Promise.all([
+    careerClient.get({
+      endpoint: "company",
+      queries: { limit: 100 },
+    }),
+    indexClient.get({ endpoint: "index" }),
+  ]);
 
   return {
     props: {

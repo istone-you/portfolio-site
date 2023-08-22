@@ -23,3 +23,7 @@ export type SelectRepoCategory = string;
 export type SetSelectRepoCategory = React.Dispatch<
   React.SetStateAction<string>
 >;
+
+export interface LanguageRate {
+  [language: string]: number;
+}

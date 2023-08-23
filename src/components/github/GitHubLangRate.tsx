@@ -7,7 +7,7 @@ const GitHubLangRate = ({ langRate }: { langRate: LanguageRate }) => {
 
   return (
     <div className="fade-in-second center">
-      <div className="w-7/12 py-6 my-6 content-card">
+      <div className="md:w-7/12 w-full py-6 my-6 content-card">
         <h2 className="mb-10 center">
           <b>Most Used Language</b>
         </h2>

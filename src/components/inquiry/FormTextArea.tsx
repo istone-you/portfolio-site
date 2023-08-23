@@ -10,7 +10,7 @@ const FormTextArea = (props: FormTextAreaProps) => {
         value={props.value}
         onChange={props.onChange}
         required
-        className="h-40 content-card focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+        className="h-72 content-card focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
       />
     </div>
   );

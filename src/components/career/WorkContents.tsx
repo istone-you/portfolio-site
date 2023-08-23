@@ -6,8 +6,8 @@ const WorkContents = ({ company }: { company: Company }) => {
   return (
     <ul>
       {company.works.map((work: Work) => (
-        <div key={work.id} className="mt-10">
-          <div className="mb-4 mt-4 py-16 px-8 sm:px-20 text-black bg-white border-2 border-black rounded-lg">
+        <div key={work.id} className="mt-6">
+          <div className="mb-4 py-16 px-8 sm:px-20 content-card">
             <h2 className="mb-10 center">
               <b>{work.title}</b>
             </h2>

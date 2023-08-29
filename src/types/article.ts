@@ -7,6 +7,10 @@ export interface Article {
   };
   url: string;
   comment: number | null;
+  category: string[]
 }
 
 export type Articles = Article[];
+
+export type SelectArticleCategory = string;
+export type SetSelectArticleCategory = React.Dispatch<React.SetStateAction<string>>;

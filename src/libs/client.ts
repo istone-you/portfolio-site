@@ -20,7 +20,7 @@ export const githubClient = createClient({
   apiKey: process.env.GITHUB_API_KEY || "",
 });
 
-export const qiitaClient = createClient({
+export const articleClient = createClient({
   serviceDomain: process.env.QITA_DOMAIN_NAME || "",
   apiKey: process.env.QITA_API_KEY || "",
 });

@@ -20,8 +20,6 @@ const Article = ({
   homeButtonUrl: HomeButtonUrl;
 }) => {
   const [selectArticleCategory, setSelectArticleCategory] = useState("qiita");
-  console.log(qiitaAccountUrl, zennAccountUrl)
-
   return (
     <div className="center">
       <div>

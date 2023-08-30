@@ -41,7 +41,7 @@ const Article = ({
 export const getStaticProps = async () => {
   const [account, articles, index] = await Promise.all([
     articleClient.get({ endpoint: "account" }),
-    articleClient.get({ endpoint: "article" }),
+    articleClient.get({ endpoint: "article", queries: { limit: 100 } }),
     indexClient.get({ endpoint: "index" }),
   ]);
 

@@ -8,7 +8,7 @@ const books = ({ homeButtonUrl }: { homeButtonUrl: HomeButtonUrl }) => {
         <div className="center">
             <div>
                 <HomeButton homeButtonUrl={homeButtonUrl} />
-                <p>「Amplifyでフルスタックな開発体験をしよう」出版予定です！</p>
+                <p className="fade-in-second font-bold">「Amplifyでフルスタックな開発体験をしよう」出版予定です！</p>
             </div>
         </div>
     )

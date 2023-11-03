@@ -24,3 +24,8 @@ export const articleClient = createClient({
   serviceDomain: process.env.ARTICLE_DOMAIN_NAME || "",
   apiKey: process.env.ARTICLE_API_KEY || "",
 });
+
+export const booksClient = createClient({
+  serviceDomain: process.env.BOOKS_DOMAIN_NAME || "",
+  apiKey: process.env.BOOKS_API_KEY || "",
+});

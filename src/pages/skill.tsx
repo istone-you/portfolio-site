@@ -16,7 +16,7 @@ const Skill = ({
   skillCategories: SkillCategories;
   homeButtonUrl: HomeButtonUrl;
 }) => {
-  const [selectSkill, setSelectSkill] = useState("Ops");
+  const [selectSkill, setSelectSkill] = useState("Dev");
 
   return (
     <div className="center">

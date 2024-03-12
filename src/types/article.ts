@@ -1,16 +1,24 @@
-export interface Article {
+export interface ZennArticle {
   id: string;
   title: string;
-  detail: string;
-  image: {
-    url: string;
-  };
-  url: string;
-  comment: number | null;
-  category: string[]
+  emoji: string;
+  liked_count: number;
+  path: string;
 }
 
-export type Articles = Article[];
+export type ZennArticles = ZennArticle[];
+
+export interface QiitaArticle {
+  id: string;
+  title: string;
+  likes_count: number;
+  stocks_count: number;
+  url: string;
+}
+
+export type QiitaArticles = QiitaArticle[];
 
 export type SelectArticleCategory = string;
-export type SetSelectArticleCategory = React.Dispatch<React.SetStateAction<string>>;
+export type SetSelectArticleCategory = React.Dispatch<
+  React.SetStateAction<string>
+>;

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import { indexClient } from "../libs/client";
 import { articleClient } from "../libs/client";
@@ -5,18 +6,20 @@ import HomeButton from "@/components/common/HomeButton";
 import PageTitle from "@/components/common/PageTitle";
 import ArticleCategoryTab from "@/components/article/ArticleCategoryTab";
 
-import type { Articles } from "@/types/article";
+import type { ZennArticles, QiitaArticles } from "@/types/article";
 import type { AccountUrl, HomeButtonUrl } from "@/types/common";
 
 const Article = ({
   qiitaAccountUrl,
   zennAccountUrl,
-  articles,
+  zennArticles,
+  qiitaArticles,
   homeButtonUrl,
 }: {
   qiitaAccountUrl: AccountUrl;
   zennAccountUrl: AccountUrl;
-  articles: Articles;
+  zennArticles: ZennArticles;
+  qiitaArticles: QiitaArticles;
   homeButtonUrl: HomeButtonUrl;
 }) => {
   const [selectArticleCategory, setSelectArticleCategory] = useState("qiita");
@@ -26,7 +29,8 @@ const Article = ({
         <HomeButton homeButtonUrl={homeButtonUrl} />
         <PageTitle title="Article" />
         <ArticleCategoryTab
-          articles={articles}
+          zennArticles={zennArticles}
+          qiitaArtilces={qiitaArticles}
           categories={["qiita", "zenn"]}
           qiitaAccountUrl={qiitaAccountUrl}
           zennAccountUrl={zennAccountUrl}
@@ -39,9 +43,16 @@ const Article = ({
 };
 
 export const getStaticProps = async () => {
-  const [account, articles, index] = await Promise.all([
+  const qiitaToken = process.env.QIITA_TOKEN;
+
+  const [account, zennArticles, qiitaArticles, index] = await Promise.all([
     articleClient.get({ endpoint: "account" }),
-    articleClient.get({ endpoint: "article", queries: { limit: 100 } }),
+    axios.get("https://zenn.dev/api/articles?username=istone"),
+    axios.get("https://qiita.com/api/v2/users/istone/items", {
+      headers: {
+        Authorization: `Bearer ${qiitaToken}`,
+      },
+    }),
     indexClient.get({ endpoint: "index" }),
   ]);
 
@@ -49,7 +60,8 @@ export const getStaticProps = async () => {
     props: {
       qiitaAccountUrl: account.qiita_url,
       zennAccountUrl: account.zenn_url,
-      articles: articles.contents,
+      zennArticles: zennArticles.data.articles,
+      qiitaArticles: qiitaArticles.data,
       homeButtonUrl: index.homebutton.url,
     },
   };

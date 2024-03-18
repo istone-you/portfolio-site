@@ -1,8 +1,8 @@
 import ZennArticlesList from "@/components/article/ZennArticlesList";
 import QiitaArticlesList from "@/components/article/QiitaArticlesList";
 
-import type { AccountUrl } from "@/types/common";
 import type {
+  ArticleInfo,
   ZennArticles,
   QiitaArticles,
   SelectArticleCategory,
@@ -13,21 +13,22 @@ const ArticleCategoryTab = ({
   zennArticles,
   qiitaArtilces,
   categories,
-  qiitaAccountUrl,
-  zennAccountUrl,
+  articleInfo,
   selectArticleCategory,
   setSelectArticleCategory,
 }: {
   zennArticles: ZennArticles;
   qiitaArtilces: QiitaArticles;
   categories: string[];
-  qiitaAccountUrl: AccountUrl;
-  zennAccountUrl: AccountUrl;
+  articleInfo: ArticleInfo;
   selectArticleCategory: SelectArticleCategory;
   setSelectArticleCategory: SetSelectArticleCategory;
 }) => {
   return (
     <>
+      <p className="fade-in-second font-bold mb-4 center">
+        {articleInfo.explanation}
+      </p>
       <ul className="fade-in-second mb-12 center-wrap">
         {categories.map((categoriey) => (
           <div key={categoriey} className="mx-2 my-2">
@@ -68,12 +69,12 @@ const ArticleCategoryTab = ({
       {selectArticleCategory == "qiita" ? (
         <QiitaArticlesList
           qiitaArticles={qiitaArtilces}
-          accountUrl={qiitaAccountUrl}
+          accountUrl={articleInfo.qiita_url}
         />
       ) : (
         <ZennArticlesList
           zennArticles={zennArticles}
-          accountUrl={zennAccountUrl}
+          accountUrl={articleInfo.zenn_url}
         />
       )}
     </>

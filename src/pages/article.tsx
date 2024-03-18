@@ -6,18 +6,16 @@ import HomeButton from "@/components/common/HomeButton";
 import PageTitle from "@/components/common/PageTitle";
 import ArticleCategoryTab from "@/components/article/ArticleCategoryTab";
 
-import type { ZennArticles, QiitaArticles } from "@/types/article";
-import type { AccountUrl, HomeButtonUrl } from "@/types/common";
+import type { ArticleInfo, ZennArticles, QiitaArticles } from "@/types/article";
+import type { HomeButtonUrl } from "@/types/common";
 
 const Article = ({
-  qiitaAccountUrl,
-  zennAccountUrl,
+  articleInfo,
   zennArticles,
   qiitaArticles,
   homeButtonUrl,
 }: {
-  qiitaAccountUrl: AccountUrl;
-  zennAccountUrl: AccountUrl;
+  articleInfo: any;
   zennArticles: ZennArticles;
   qiitaArticles: QiitaArticles;
   homeButtonUrl: HomeButtonUrl;
@@ -32,8 +30,7 @@ const Article = ({
           zennArticles={zennArticles}
           qiitaArtilces={qiitaArticles}
           categories={["qiita", "zenn"]}
-          qiitaAccountUrl={qiitaAccountUrl}
-          zennAccountUrl={zennAccountUrl}
+          articleInfo={articleInfo}
           selectArticleCategory={selectArticleCategory}
           setSelectArticleCategory={setSelectArticleCategory}
         />
@@ -45,8 +42,8 @@ const Article = ({
 export const getStaticProps = async () => {
   const qiitaToken = process.env.QIITA_TOKEN;
 
-  const [account, zennArticles, qiitaArticles, index] = await Promise.all([
-    articleClient.get({ endpoint: "account" }),
+  const [articleInfo, zennArticles, qiitaArticles, index] = await Promise.all([
+    articleClient.get({ endpoint: "article-info" }),
     axios.get("https://zenn.dev/api/articles?username=istone"),
     axios.get("https://qiita.com/api/v2/users/istone/items", {
       headers: {
@@ -58,8 +55,7 @@ export const getStaticProps = async () => {
 
   return {
     props: {
-      qiitaAccountUrl: account.qiita_url,
-      zennAccountUrl: account.zenn_url,
+      articleInfo,
       zennArticles: zennArticles.data.articles,
       qiitaArticles: qiitaArticles.data,
       homeButtonUrl: index.homebutton.url,

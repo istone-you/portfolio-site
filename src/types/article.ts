@@ -1,3 +1,9 @@
+export interface ArticleInfo {
+  qiita_url: string;
+  zenn_url: string;
+  explanation: string;
+}
+
 export interface ZennArticle {
   id: string;
   title: string;

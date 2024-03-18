@@ -15,7 +15,7 @@ const Article = ({
   qiitaArticles,
   homeButtonUrl,
 }: {
-  articleInfo: any;
+  articleInfo: ArticleInfo;
   zennArticles: ZennArticles;
   qiitaArticles: QiitaArticles;
   homeButtonUrl: HomeButtonUrl;

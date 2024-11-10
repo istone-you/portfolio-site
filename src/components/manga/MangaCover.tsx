@@ -26,6 +26,7 @@ const MangaCover = ({
         width={100}
         height={200}
         loading="lazy"
+        unoptimized
         className="w-[50px] transition-transform duration-300 group-hover:scale-150 group-hover:-translate-y-1/4"
         style={{ transformOrigin: "center" }}
       />

@@ -43,20 +43,8 @@ const ArticleCategoryTab = ({
               tabIndex={0}
               className={`${
                 selectArticleCategory === categoriey
-                  ? "pointer-events-none"
-                  : "pointer-events-auto"
-              }  ${
-                selectArticleCategory === categoriey
-                  ? "cursor-default"
-                  : "cursor-pointer"
-              } ${
-                selectArticleCategory === categoriey ? "bg-black" : "text-black"
-              } ${
-                selectArticleCategory === categoriey ? "text-white" : "bg-white"
-              } ${
-                selectArticleCategory === categoriey
-                  ? "shadow-none translate-y-1 translate-x-1"
-                  : ""
+                  ? "tab-selected"
+                  : "tab-unselected"
               } px-8 py-1 title-shadow`}
             >
               {categoriey.charAt(0).toUpperCase() +

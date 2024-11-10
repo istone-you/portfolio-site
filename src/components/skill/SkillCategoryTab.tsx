@@ -28,20 +28,8 @@ const SkillCategoryTab = ({
             tabIndex={0}
             className={`${
               selectSkill === skillCategory.name
-                ? "pointer-events-none"
-                : "pointer-events-auto"
-            }  ${
-              selectSkill === skillCategory.name
-                ? "cursor-default"
-                : "cursor-pointer"
-            } ${
-              selectSkill === skillCategory.name ? "bg-black" : "text-black"
-            } ${
-              selectSkill === skillCategory.name ? "text-white" : "bg-white"
-            } ${
-              selectSkill === skillCategory.name
-                ? "shadow-none translate-y-1 translate-x-1"
-                : ""
+                ? "tab-selected"
+                : "tab-unselected"
             } px-8 py-1 title-shadow`}
           >
             {skillCategory.name}

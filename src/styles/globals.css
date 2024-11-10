@@ -67,6 +67,14 @@
     @apply text-black border border-black font-bold bg-gray-300 duration-100 group-hover:shadow-none group-hover:translate-y-1 group-hover:translate-x-1;
   }
 
+  .tab-selected {
+    @apply pointer-events-none cursor-default bg-black text-white shadow-none translate-y-1 translate-x-1;
+  }
+
+  .tab-unselected {
+    @apply pointer-events-auto cursor-pointer bg-white text-black;
+  }
+
   .form {
     width: 800px;
   }

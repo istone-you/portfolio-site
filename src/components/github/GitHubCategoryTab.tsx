@@ -27,27 +27,12 @@ const GitHubCategoryTab = ({
             }}
             role="button"
             tabIndex={0}
-            className={`text-black px-4 py-1 title-shadow ${
-              selectRepoCategory == repoCategory.name
-                ? "pointer-events-none"
-                : "pointer-events-auto"
-            }  ${
-              selectRepoCategory == repoCategory.name
-                ? "cursor-default"
-                : "cursor-pointer"
-            } ${
-              selectRepoCategory == repoCategory.name
-                ? "bg-black"
-                : "text-black"
-            } ${
-              selectRepoCategory == repoCategory.name
-                ? "text-white"
-                : "bg-white"
-            } ${
-              selectRepoCategory == repoCategory.name
-                ? "shadow-none translate-y-1 translate-x-1"
-                : ""
-            }`}
+            className={`px-4 py-1 title-shadow 
+              ${
+                selectRepoCategory === repoCategory.name
+                  ? "tab-selected"
+                  : "tab-unselected"
+              }`}
           >
             {repoCategory.name}
           </div>

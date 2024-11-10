@@ -29,3 +29,8 @@ export const booksClient = createClient({
   serviceDomain: process.env.BOOKS_DOMAIN_NAME || "",
   apiKey: process.env.BOOKS_API_KEY || "",
 });
+
+export const mangaClient = createClient({
+  serviceDomain: process.env.MANGA_DOMAIN_NAME || "",
+  apiKey: process.env.MANGA_API_KEY || "",
+});

@@ -9,6 +9,7 @@ const MangaListSection = ({
   nonSerializedMangaList,
   magazines,
   visible,
+  visibleCount,
 }: {
   viewMode: "series" | "all" | "serialized" | "magazine";
   mangaList: Array<any>;
@@ -16,6 +17,7 @@ const MangaListSection = ({
   nonSerializedMangaList: Array<any>;
   magazines: Array<string>;
   visible: boolean;
+  visibleCount: number;
 }) => (
   <>
     {viewMode === "serialized" && (
@@ -98,7 +100,7 @@ const MangaListSection = ({
         <h3 className="w-full text-center mt-4 mb-2 text-lg font-semibold">
           {mangaList.reduce((acc, manga) => acc + manga.covers.length, 0)}冊
         </h3>
-        {mangaList.map((manga) =>
+        {mangaList.slice(0, visibleCount).map((manga) =>
           manga.covers.map((coverObj: Cover, index: number) => (
             <MangaCover
               key={`${manga.id}-${index}`}

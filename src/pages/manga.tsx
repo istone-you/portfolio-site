@@ -19,6 +19,7 @@ const Manga = ({
     "series" | "all" | "serialized" | "magazine"
   >("series");
   const [visible, setVisible] = useState(false);
+  const [visibleCount, setVisibleCount] = useState(20);
 
   const toggleViewMode = (
     mode: "series" | "all" | "serialized" | "magazine"
@@ -28,6 +29,10 @@ const Manga = ({
       setViewMode(mode);
       setVisible(true);
     }, 300);
+  };
+
+  const handleLoadMore = () => {
+    setVisibleCount((prevCount) => prevCount + 20);
   };
 
   useEffect(() => {
@@ -112,9 +117,20 @@ const Manga = ({
               nonSerializedMangaList={nonSerializedMangaList}
               magazines={magazines}
               visible={visible}
+              visibleCount={visibleCount}
             />
           </div>
         </div>
+        {viewMode === "all" &&
+          visibleCount <
+            mangaList.reduce((acc, manga) => acc + manga.covers.length, 0) && (
+            <button
+              className="block mt-5 mx-auto group"
+              onClick={handleLoadMore}
+            >
+              <div className="px-3 py-0.5 button-shadow">もっと見る</div>
+            </button>
+          )}
       </div>
     </div>
   );

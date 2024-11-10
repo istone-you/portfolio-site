@@ -1,20 +1,14 @@
 import { useState, useEffect } from "react";
+
 import { indexClient } from "../libs/client";
 import { mangaClient } from "../libs/client";
-import HomeButton from "@/components/common/HomeButton";
+
 import ViewModeButton from "@/components/manga/ViewModeButton";
 import MangaListSection from "@/components/manga/MangaListSection";
-import Image from "next/image";
 import type { mangaList } from "@/types/manga";
 import type { HomeButtonUrl } from "@/types/common";
 
-const Manga = ({
-  mangaList,
-  homeButtonUrl,
-}: {
-  mangaList: mangaList;
-  homeButtonUrl: HomeButtonUrl;
-}) => {
+const Manga = ({ mangaList }: { mangaList: mangaList }) => {
   const [viewMode, setViewMode] = useState<
     "series" | "all" | "serialized" | "magazine"
   >("series");
@@ -42,11 +36,6 @@ const Manga = ({
   const serializedMangaList = mangaList.filter((manga) => manga.is_serialized);
   const nonSerializedMangaList = mangaList.filter(
     (manga) => !manga.is_serialized
-  );
-
-  const allCoverCount = mangaList.reduce(
-    (acc, manga) => acc + manga.covers.length,
-    0
   );
 
   const magazines = [
@@ -96,7 +85,7 @@ const Manga = ({
     <div className="center">
       <div>
         <div className="center fade-in-second">
-          <div className="mb-10 mt-10 flex space-x-2">
+          <div className="flex mb-10 mt-10 space-x-2">
             <ViewModeButton
               buttonModes={buttonModes}
               currentMode={viewMode}
@@ -121,16 +110,11 @@ const Manga = ({
             />
           </div>
         </div>
-        {viewMode === "all" &&
-          visibleCount <
-            mangaList.reduce((acc, manga) => acc + manga.covers.length, 0) && (
-            <button
-              className="block mt-5 mx-auto group"
-              onClick={handleLoadMore}
-            >
-              <div className="px-3 py-0.5 button-shadow">もっと見る</div>
-            </button>
-          )}
+        {viewMode === "all" && visibleCount < mangaList.length && (
+          <button className="block mt-5 mx-auto group" onClick={handleLoadMore}>
+            <div className="px-3 py-0.5 button-shadow">もっと見る</div>
+          </button>
+        )}
       </div>
     </div>
   );
@@ -147,7 +131,6 @@ export const getStaticProps = async () => {
   return {
     props: {
       mangaList: manga,
-      homeButtonUrl: index.homebutton.url,
     },
   };
 };

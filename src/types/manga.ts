@@ -2,7 +2,7 @@ export interface Manga {
   id: string;
   title: string;
   is_serialized: boolean;
-  magazine: string;
+  magazine: Magazine;
   covers: Cover[];
 }
 
@@ -12,12 +12,16 @@ export interface Cover {
   title: string;
 }
 
-export interface SingleManga {
+export type Magazine = {
   id: string;
-  title: string;
-  cover: string;
-  main: boolean;
-}
+  name: string;
+  logo: {
+    url: string;
+  };
+  specialNumber: {
+    id: string;
+  };
+};
 
 export type mangaList = Manga[];
-export type singleMangaList = SingleManga[];
+export type magazineList = Magazine[];

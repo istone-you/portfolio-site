@@ -142,23 +142,35 @@ const MangaListSection = ({
           <h3 className="w-full text-center mt-4 mb-2 text-lg font-semibold">
             {mangaList.reduce((acc, manga) => acc + manga.covers.length, 0)}冊
           </h3>
-          {[...mangaList]
-            .sort((a, b) => b.covers.length - a.covers.length)
-            .slice(0, visibleCount)
-            .map((manga) =>
-              manga.covers.map((coverObj: Cover, index: number) => (
-                <MangaCover
-                  key={`${manga.id}-${index}`}
-                  manga={{
-                    id: manga.id,
-                    title: `${manga.title} ${index + 1}巻`,
-                    covers: [coverObj],
-                  }}
-                  visible={visible}
-                  coverTitle={coverObj.title}
-                />
-              ))
-            )}
+          {mangaList
+            .flatMap((manga) =>
+              manga.covers.map((coverObj, index) => ({
+                mangaId: manga.id,
+                mangaTitle: manga.title,
+                coverObj,
+                coverIndex: index,
+              }))
+            )
+            // ソート条件を修正: covers の数を基準にする
+            .sort(
+              (a, b) =>
+                mangaList.find((manga) => manga.id === b.mangaId)!.covers
+                  .length -
+                mangaList.find((manga) => manga.id === a.mangaId)!.covers.length
+            )
+            .slice(0, visibleCount) // 全体から visibleCount 分を抽出
+            .map(({ mangaId, mangaTitle, coverObj, coverIndex }) => (
+              <MangaCover
+                key={`${mangaId}-${coverIndex}`}
+                manga={{
+                  id: mangaId,
+                  title: `${mangaTitle} ${coverIndex + 1}巻`,
+                  covers: [coverObj],
+                }}
+                visible={visible}
+                coverTitle={coverObj.title}
+              />
+            ))}
         </>
       )}
       {viewMode === "count" && (

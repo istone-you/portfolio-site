@@ -15,7 +15,7 @@ const Manga = ({
 }) => {
   const [viewMode, setViewMode] = useState<ViewMode>("series");
   const [visible, setVisible] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(20);
+  const [visibleCount, setVisibleCount] = useState(200);
 
   const toggleViewMode = (mode: ViewMode) => {
     setVisible(false);
@@ -26,7 +26,7 @@ const Manga = ({
   };
 
   const handleLoadMore = () => {
-    setVisibleCount((prevCount) => prevCount + 20);
+    setVisibleCount((prevCount) => prevCount + 200);
   };
 
   useEffect(() => {
@@ -59,11 +59,16 @@ const Manga = ({
             />
           </div>
         </div>
-        {viewMode === "all" && visibleCount < mangaList.length && (
-          <button className="block mt-5 mx-auto group" onClick={handleLoadMore}>
-            <div className="px-3 py-0.5 button-shadow">もっと見る</div>
-          </button>
-        )}
+        {viewMode === "all" &&
+          visibleCount <
+            mangaList.reduce((acc, manga) => acc + manga.covers.length, 0) && (
+            <button
+              className="block mt-5 mx-auto group"
+              onClick={handleLoadMore}
+            >
+              <div className="px-3 py-0.5 button-shadow">もっと見る</div>
+            </button>
+          )}
       </div>
     </div>
   );

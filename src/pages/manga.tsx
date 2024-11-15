@@ -4,7 +4,7 @@ import { mangaClient } from "../libs/client";
 
 import ViewModeButton from "@/components/manga/ViewModeButton";
 import MangaListSection from "@/components/manga/MangaListSection";
-import type { mangaList, magazineList } from "@/types/manga";
+import type { mangaList, magazineList, ViewMode } from "@/types/manga";
 
 const Manga = ({
   mangaList,
@@ -13,15 +13,11 @@ const Manga = ({
   mangaList: mangaList;
   magazineList: magazineList;
 }) => {
-  const [viewMode, setViewMode] = useState<
-    "series" | "all" | "serialized" | "magazine"
-  >("series");
+  const [viewMode, setViewMode] = useState<ViewMode>("series");
   const [visible, setVisible] = useState(false);
   const [visibleCount, setVisibleCount] = useState(20);
 
-  const toggleViewMode = (
-    mode: "series" | "all" | "serialized" | "magazine"
-  ) => {
+  const toggleViewMode = (mode: ViewMode) => {
     setVisible(false);
     setTimeout(() => {
       setViewMode(mode);

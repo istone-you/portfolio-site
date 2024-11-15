@@ -25,3 +25,5 @@ export type Magazine = {
 
 export type mangaList = Manga[];
 export type magazineList = Magazine[];
+
+export type ViewMode = "series" | "all" | "serialized" | "magazine" | "count";

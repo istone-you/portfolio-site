@@ -3,7 +3,13 @@ import Image from "next/image";
 import MangaCover from "./MangaCover";
 import MagazineMangaList from "./MagazineMangaList";
 
-import type { Manga, magazineList, Cover } from "@/types/manga";
+import type {
+  Manga,
+  Cover,
+  mangaList,
+  magazineList,
+  ViewMode,
+} from "@/types/manga";
 
 const MangaListSection = ({
   viewMode,
@@ -12,8 +18,8 @@ const MangaListSection = ({
   visibleCount,
   magazineList,
 }: {
-  viewMode: "series" | "all" | "serialized" | "magazine";
-  mangaList: Array<any>;
+  viewMode: ViewMode;
+  mangaList: mangaList;
   visible: boolean;
   visibleCount: number;
   magazineList: magazineList;
@@ -30,15 +36,19 @@ const MangaListSection = ({
           <h3 className="w-full text-center mt-4 mb-2 text-lg font-semibold">
             連載中（{serializedMangaList.length}作品）
           </h3>
-          {serializedMangaList.map((manga) => (
-            <MangaCover key={manga.id} manga={manga} visible={visible} />
-          ))}
+          {[...serializedMangaList]
+            .sort((a, b) => b.covers.length - a.covers.length)
+            .map((manga) => (
+              <MangaCover key={manga.id} manga={manga} visible={visible} />
+            ))}
           <h3 className="w-full text-center mt-6 mb-2 text-lg font-semibold">
             完結済（{nonSerializedMangaList.length}作品）
           </h3>
-          {nonSerializedMangaList.map((manga) => (
-            <MangaCover key={manga.id} manga={manga} visible={visible} />
-          ))}
+          {[...nonSerializedMangaList]
+            .sort((a, b) => b.covers.length - a.covers.length)
+            .map((manga) => (
+              <MangaCover key={manga.id} manga={manga} visible={visible} />
+            ))}
         </>
       )}
       {viewMode === "magazine" && (
@@ -116,9 +126,15 @@ const MangaListSection = ({
           <h3 className="w-full text-center mt-4 mb-2 text-lg font-semibold">
             {mangaList.length}作品
           </h3>
-          {mangaList.map((manga) => (
-            <MangaCover key={manga.id} manga={manga} visible={visible} />
-          ))}
+          {[...mangaList]
+            .sort((a, b) => {
+              const nameA = a.covers[0].title || "";
+              const nameB = b.covers[0].title || "";
+              return nameA.localeCompare(nameB, "ja"); // 'ja'で日本語の並び順をサポート
+            })
+            .map((manga) => (
+              <MangaCover key={manga.id} manga={manga} visible={visible} />
+            ))}
         </>
       )}
       {viewMode === "all" && (
@@ -126,20 +142,40 @@ const MangaListSection = ({
           <h3 className="w-full text-center mt-4 mb-2 text-lg font-semibold">
             {mangaList.reduce((acc, manga) => acc + manga.covers.length, 0)}冊
           </h3>
-          {mangaList.slice(0, visibleCount).map((manga) =>
-            manga.covers.map((coverObj: Cover, index: number) => (
-              <MangaCover
-                key={`${manga.id}-${index}`}
-                manga={{
-                  id: manga.id,
-                  title: `${manga.title} ${index + 1}巻`,
-                  covers: [coverObj],
-                }}
-                visible={visible}
-                coverTitle={coverObj.title}
-              />
-            ))
-          )}
+          {[...mangaList]
+            .sort((a, b) => b.covers.length - a.covers.length)
+            .slice(0, visibleCount)
+            .map((manga) =>
+              manga.covers.map((coverObj: Cover, index: number) => (
+                <MangaCover
+                  key={`${manga.id}-${index}`}
+                  manga={{
+                    id: manga.id,
+                    title: `${manga.title} ${index + 1}巻`,
+                    covers: [coverObj],
+                  }}
+                  visible={visible}
+                  coverTitle={coverObj.title}
+                />
+              ))
+            )}
+        </>
+      )}
+      {viewMode === "count" && (
+        <>
+          {[...mangaList]
+            .sort((a, b) => b.covers.length - a.covers.length)
+            .map((manga) => (
+              <div
+                key={manga.id}
+                className="flex flex-col items-center relative mx-2 my-1 group"
+              >
+                <MangaCover manga={manga} visible={visible} />
+                <p className="absolute bottom-0 right-0 transform translate-x-1/2 translate-y-full bg-gray-800 text-white text-sm rounded-full w-6 h-6 flex items-center justify-center transition-opacity duration-300 opacity-100 group-hover:opacity-0">
+                  {manga.covers.length}
+                </p>
+              </div>
+            ))}
         </>
       )}
     </>

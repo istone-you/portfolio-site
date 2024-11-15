@@ -1,11 +1,14 @@
+import type { ViewMode } from "@/types/manga";
+
 const buttonModes: Array<{
   label: string;
-  mode: "series" | "all" | "serialized" | "magazine";
+  mode: ViewMode;
 }> = [
   { label: "全作品", mode: "series" },
   { label: "全冊", mode: "all" },
   { label: "連載中/完結済", mode: "serialized" },
   { label: "雑誌別", mode: "magazine" },
+  { label: "冊数順", mode: "count" },
 ];
 
 const ViewModeButton = ({
@@ -13,7 +16,7 @@ const ViewModeButton = ({
   toggleViewMode,
 }: {
   viewMode: string;
-  toggleViewMode: (mode: "series" | "all" | "serialized" | "magazine") => void;
+  toggleViewMode: (mode: ViewMode) => void;
 }) => (
   <>
     {buttonModes.map((button) => (

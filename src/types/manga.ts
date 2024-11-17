@@ -7,12 +7,11 @@ export interface Manga {
 }
 
 export interface Cover {
-  volume: number;
   cover: string;
   title: string;
 }
 
-export type Magazine = {
+export interface Magazine {
   id: string;
   name: string;
   logo: {
@@ -21,7 +20,7 @@ export type Magazine = {
   specialNumber: {
     id: string;
   };
-};
+}
 
 export type mangaList = Manga[];
 export type magazineList = Magazine[];

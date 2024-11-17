@@ -4,7 +4,7 @@ import MangaCover from "./MangaCover";
 
 import type { mangaList, Magazine, Cover } from "@/types/manga";
 
-const MagazineMangaList = ({
+const MagazineModeContents = ({
   magazine,
   mangas,
   visible,
@@ -52,4 +52,4 @@ const MagazineMangaList = ({
   </>
 );
 
-export default MagazineMangaList;
+export default MagazineModeContents;

@@ -4,6 +4,8 @@ import { mangaClient } from "../libs/client";
 
 import ViewModeButton from "@/components/manga/ViewModeButton";
 import MangaListSection from "@/components/manga/MangaListSection";
+import LoadMoreButton from "@/components/manga/LoadMoreButton";
+
 import type { mangaList, magazineList, ViewMode } from "@/types/manga";
 
 const Manga = ({
@@ -25,13 +27,17 @@ const Manga = ({
     }, 300);
   };
 
-  const handleLoadMore = () => {
-    setVisibleCount((prevCount) => prevCount + 200);
-  };
-
   useEffect(() => {
     setVisible(true);
   }, []);
+
+  const handleLoadMore = () => {
+    setVisibleCount((prevCount) => prevCount + 200);
+  };
+  const isLoadMoreVisible =
+    viewMode === "all" &&
+    visibleCount <
+      mangaList.reduce((acc, manga) => acc + manga.covers.length, 0);
 
   return (
     <div className="center">
@@ -59,16 +65,10 @@ const Manga = ({
             />
           </div>
         </div>
-        {viewMode === "all" &&
-          visibleCount <
-            mangaList.reduce((acc, manga) => acc + manga.covers.length, 0) && (
-            <button
-              className="block mt-5 mx-auto group"
-              onClick={handleLoadMore}
-            >
-              <div className="px-3 py-0.5 button-shadow">もっと見る</div>
-            </button>
-          )}
+        <LoadMoreButton
+          onClick={handleLoadMore}
+          isVisible={isLoadMoreVisible}
+        />
       </div>
     </div>
   );

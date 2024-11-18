@@ -1,9 +1,9 @@
-import MagazineModeToggle from "../viewModeContents/MagazineModeToggle";
+import ViewToggle from "../viewModeContents/ViewToggle";
 import MagazineModeContents from "../viewModeContents/MagazineModeContents";
 
 import type { mangaList, magazineList } from "@/types/manga";
 
-import useMagazineModeView from "@/hooks/useMagazineModeView";
+import useSerializedSort from "@/hooks/useSerializedSort";
 
 const MagazineMode = ({
   mangaList,
@@ -15,11 +15,15 @@ const MagazineMode = ({
   magazineList: magazineList;
 }) => {
   const { filterSerialized, isReloading, handleToggle } =
-    useMagazineModeView(false);
+    useSerializedSort(false);
 
   return (
     <div className="container mx-auto">
-      <MagazineModeToggle checked={filterSerialized} onChange={handleToggle} />
+      <ViewToggle
+        label="連載中のみ表示"
+        checked={filterSerialized}
+        onChange={handleToggle}
+      />
       {magazineList
         .filter(
           (magazine) =>

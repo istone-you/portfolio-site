@@ -86,6 +86,18 @@
       margin-right: auto;
     }
   }
+
+  button.vertical-label {
+    width: auto; /* 通常は自動幅 */
+  }
+
+  /* スマホ時に縦書きに変更 */
+  @media (max-width: 412px) {
+    button.vertical-label {
+      width: 70px; /* 横幅を狭める */
+      padding: 4px;
+    }
+  }
 }
 
 @layer utilities {

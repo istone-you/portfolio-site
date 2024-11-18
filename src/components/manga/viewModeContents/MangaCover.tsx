@@ -10,13 +10,13 @@ const MangaCover = ({
     title: string;
     covers: Array<{ cover: string; title?: string }>;
   };
-  visible: boolean;
+  visible: boolean | null;
   coverTitle?: string;
 }) => (
   <div
     key={manga.id}
     className={`relative mx-0.5 my-0.5 w-[50px] h-[80px] overflow-visible hover:z-10 group transition-opacity ${
-      visible ? "fade-in" : "fade-out"
+      visible === null ? "" : visible ? "fade-in" : "fade-out"
     }`}
   >
     <div className="absolute inset-0 flex justify-center items-center">

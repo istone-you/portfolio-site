@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const useMagazineModeView = (initialState: boolean = false) => {
+const useSerializedSort = (initialState: boolean = false) => {
   const [filterSerialized, setFilterSerialized] = useState(initialState);
   const [isReloading, setIsReloading] = useState(false);
 
@@ -15,4 +15,4 @@ const useMagazineModeView = (initialState: boolean = false) => {
   return { filterSerialized, isReloading, handleToggle };
 };
 
-export default useMagazineModeView;
+export default useSerializedSort;

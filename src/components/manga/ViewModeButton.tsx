@@ -5,10 +5,9 @@ const buttonModes: Array<{
   mode: ViewMode;
 }> = [
   { label: "全作品", mode: "series" },
-  { label: "全冊", mode: "all" },
   { label: "連載中/完結済", mode: "serialized" },
   { label: "雑誌別", mode: "magazine" },
-  { label: "冊数順", mode: "count" },
+  { label: "全冊", mode: "all" },
 ];
 
 const ViewModeButton = ({
@@ -25,7 +24,7 @@ const ViewModeButton = ({
         onClick={() => toggleViewMode(button.mode)}
         className={`px-4 py-1 title-shadow text-sm ${
           viewMode === button.mode ? "tab-selected" : "tab-unselected"
-        }`}
+        } vertical-label`}
       >
         {button.label}
       </button>

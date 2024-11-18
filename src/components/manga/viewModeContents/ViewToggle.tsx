@@ -1,13 +1,15 @@
-const MagazineModeToggle = ({
+const ViewToggle = ({
+  label,
   checked,
   onChange,
 }: {
+  label: string;
   checked: boolean;
   onChange: () => void;
 }) => {
   return (
     <div className="flex flex-col mb-4 justify-center items-center h-20">
-      <span className="mb-2 text-md font-semibold">連載中のみ表示</span>
+      <span className="mb-2 text-md font-semibold">{label}</span>
       <label className="flex items-center cursor-pointer">
         <input
           type="checkbox"
@@ -33,4 +35,4 @@ const MagazineModeToggle = ({
   );
 };
 
-export default MagazineModeToggle;
+export default ViewToggle;

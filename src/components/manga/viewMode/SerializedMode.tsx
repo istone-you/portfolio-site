@@ -1,4 +1,8 @@
 import MangaCover from "../viewModeContents/MangaCover";
+import ViewToggle from "../viewModeContents/ViewToggle";
+import SerializedModeContents from "../viewModeContents/SerializedModeContents";
+
+import useCountSort from "@/hooks/useCountSort";
 
 import type { mangaList } from "@/types/manga";
 
@@ -9,6 +13,8 @@ const SerializedMode = ({
   mangaList: mangaList;
   visible: boolean;
 }) => {
+  const { sortByCount, isReloading, handleToggle } = useCountSort(false);
+
   const serializedMangaList = mangaList.filter(
     (manga) => manga.is_serialized && manga.id !== "single"
   );
@@ -18,22 +24,25 @@ const SerializedMode = ({
 
   return (
     <>
-      <h3 className="w-full text-center mt-4 mb-2 text-lg font-semibold">
-        連載中（{serializedMangaList.length}作品）
-      </h3>
-      {[...serializedMangaList]
-        .sort((a, b) => b.covers.length - a.covers.length)
-        .map((manga) => (
-          <MangaCover key={manga.id} manga={manga} visible={visible} />
-        ))}
-      <h3 className="w-full text-center mt-6 mb-2 text-lg font-semibold">
-        完結済（{nonSerializedMangaList.length}作品）
-      </h3>
-      {[...nonSerializedMangaList]
-        .sort((a, b) => b.covers.length - a.covers.length)
-        .map((manga) => (
-          <MangaCover key={manga.id} manga={manga} visible={visible} />
-        ))}
+      <ViewToggle
+        label="冊数順に表示"
+        checked={sortByCount}
+        onChange={handleToggle}
+      />
+      <SerializedModeContents
+        title="連載中"
+        mangaList={serializedMangaList}
+        sortByCount={sortByCount}
+        isReloading={isReloading}
+        visible={visible}
+      />
+      <SerializedModeContents
+        title="完結済"
+        mangaList={nonSerializedMangaList}
+        sortByCount={sortByCount}
+        isReloading={isReloading}
+        visible={visible}
+      />
     </>
   );
 };

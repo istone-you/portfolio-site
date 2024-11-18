@@ -1,10 +1,7 @@
-import { useState, useEffect } from "react";
-
 import { mangaClient } from "../libs/client";
 
 import ViewModeButton from "@/components/manga/ViewModeButton";
 import MangaListSection from "@/components/manga/MangaListSection";
-import LoadMoreButton from "@/components/manga/LoadMoreButton";
 
 import type { mangaList, magazineList, ViewMode } from "@/types/manga";
 
@@ -17,14 +14,7 @@ const Manga = ({
   mangaList: mangaList;
   magazineList: magazineList;
 }) => {
-  const {
-    viewMode,
-    visible,
-    visibleCount,
-    toggleViewMode,
-    handleLoadMore,
-    isLoadMoreVisible,
-  } = useMangaView(mangaList);
+  const { viewMode, visible, toggleViewMode } = useMangaView(mangaList);
 
   return (
     <div className="center">
@@ -47,15 +37,10 @@ const Manga = ({
               viewMode={viewMode}
               mangaList={mangaList}
               visible={visible}
-              visibleCount={visibleCount}
               magazineList={magazineList}
             />
           </div>
         </div>
-        <LoadMoreButton
-          onClick={handleLoadMore}
-          isVisible={isLoadMoreVisible}
-        />
       </div>
     </div>
   );

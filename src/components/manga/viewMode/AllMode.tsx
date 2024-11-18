@@ -1,20 +1,28 @@
 import MangaCover from "../viewModeContents/MangaCover";
+import LoadMoreButton from "../viewModeContents/LoadMoreButton";
+
+import useAllModeView from "@/hooks/useAllModeView";
 
 import type { mangaList } from "@/types/manga";
 
 const AllMode = ({
   mangaList,
   visible,
-  visibleCount,
 }: {
   mangaList: mangaList;
   visible: boolean;
-  visibleCount: number;
 }) => {
+  const mangaCount = mangaList.reduce(
+    (acc, manga) => acc + manga.covers.length,
+    0
+  );
+  const { visibleCount, isLoadMoreVisible, handleLoadMore } =
+    useAllModeView(mangaCount);
+
   return (
     <>
       <h3 className="w-full text-center mt-4 mb-2 text-lg font-semibold">
-        {mangaList.reduce((acc, manga) => acc + manga.covers.length, 0)}冊
+        {mangaCount}冊
       </h3>
       {mangaList
         .flatMap((manga) =>
@@ -43,6 +51,12 @@ const AllMode = ({
             coverTitle={coverObj.title}
           />
         ))}
+      <div className="w-full">
+        <LoadMoreButton
+          onClick={handleLoadMore}
+          isVisible={isLoadMoreVisible}
+        />
+      </div>
     </>
   );
 };

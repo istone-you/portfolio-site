@@ -10,13 +10,11 @@ const MangaListSection = ({
   viewMode,
   mangaList,
   visible,
-  visibleCount,
   magazineList,
 }: {
   viewMode: ViewMode;
   mangaList: mangaList;
   visible: boolean;
-  visibleCount: number;
   magazineList: magazineList;
 }) => {
   return (
@@ -25,11 +23,7 @@ const MangaListSection = ({
         <SeriesMode mangaList={mangaList} visible={visible} />
       )}
       {viewMode === "all" && (
-        <AllMode
-          mangaList={mangaList}
-          visible={visible}
-          visibleCount={visibleCount}
-        />
+        <AllMode mangaList={mangaList} visible={visible} />
       )}
       {viewMode === "serialized" && (
         <SerializedMode mangaList={mangaList} visible={visible} />

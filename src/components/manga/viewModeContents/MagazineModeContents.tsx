@@ -2,16 +2,18 @@ import Image from "next/image";
 
 import MangaCover from "./MangaCover";
 
-import type { mangaList, Magazine, Cover } from "@/types/manga";
+import type { mangaList, Magazine } from "@/types/manga";
 
 const MagazineModeContents = ({
   magazine,
   mangas,
   visible,
+  isTransparent,
 }: {
   magazine: Magazine | null;
   mangas: mangaList;
   visible: boolean;
+  isTransparent: boolean;
 }) => (
   <>
     <div className="flex justify-center items-center mb-4">
@@ -39,15 +41,17 @@ const MagazineModeContents = ({
       </p>
     )} */}
     <div className="flex flex-wrap items-center justify-center">
-      {mangas.length > 0 ? (
-        mangas.map((manga) => (
+      {mangas.map((manga) => (
+        <div
+          key={manga.id}
+          style={{
+            opacity: isTransparent ? 0 : 1, // 透明化制御
+            transition: "opacity 0.5s ease", // フェード効果
+          }}
+        >
           <MangaCover key={manga.id} manga={manga} visible={visible} />
-        ))
-      ) : (
-        <div className="text-center text-gray-500 mt-2 mb-6">
-          作品がありません
         </div>
-      )}
+      ))}
     </div>
   </>
 );

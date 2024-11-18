@@ -8,6 +8,8 @@ import LoadMoreButton from "@/components/manga/LoadMoreButton";
 
 import type { mangaList, magazineList, ViewMode } from "@/types/manga";
 
+import useMangaView from "@/hooks/useMangaView";
+
 const Manga = ({
   mangaList,
   magazineList,
@@ -15,29 +17,14 @@ const Manga = ({
   mangaList: mangaList;
   magazineList: magazineList;
 }) => {
-  const [viewMode, setViewMode] = useState<ViewMode>("series");
-  const [visible, setVisible] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(200);
-
-  const toggleViewMode = (mode: ViewMode) => {
-    setVisible(false);
-    setTimeout(() => {
-      setViewMode(mode);
-      setVisible(true);
-    }, 300);
-  };
-
-  useEffect(() => {
-    setVisible(true);
-  }, []);
-
-  const handleLoadMore = () => {
-    setVisibleCount((prevCount) => prevCount + 200);
-  };
-  const isLoadMoreVisible =
-    viewMode === "all" &&
-    visibleCount <
-      mangaList.reduce((acc, manga) => acc + manga.covers.length, 0);
+  const {
+    viewMode,
+    visible,
+    visibleCount,
+    toggleViewMode,
+    handleLoadMore,
+    isLoadMoreVisible,
+  } = useMangaView(mangaList);
 
   return (
     <div className="center">

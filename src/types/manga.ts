@@ -3,6 +3,7 @@ export interface Manga {
   title: string;
   is_serialized: boolean;
   magazine: Magazine;
+  is_transferred: Magazine;
   covers: Cover[];
 }
 

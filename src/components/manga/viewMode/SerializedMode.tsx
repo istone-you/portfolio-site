@@ -9,9 +9,11 @@ const SerializedMode = ({
   mangaList: mangaList;
   visible: boolean;
 }) => {
-  const serializedMangaList = mangaList.filter((manga) => manga.is_serialized);
+  const serializedMangaList = mangaList.filter(
+    (manga) => manga.is_serialized && manga.id !== "single"
+  );
   const nonSerializedMangaList = mangaList.filter(
-    (manga) => !manga.is_serialized
+    (manga) => !manga.is_serialized && manga.id !== "single"
   );
 
   return (

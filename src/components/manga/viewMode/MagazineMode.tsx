@@ -49,6 +49,17 @@ const MagazineMode = ({
             magazineList.find(
               (special) => special.id === magazine.specialNumber.id
             );
+          const specialMangas = mangaList.filter((manga) => {
+            const currentMagazine =
+              filterSerialized && manga.is_transferred
+                ? manga.is_transferred
+                : manga.magazine;
+
+            return (
+              currentMagazine?.id === magazine.specialNumber?.id &&
+              (!filterSerialized || manga.is_serialized)
+            );
+          });
 
           return (
             filteredMangas.length > 0 && (
@@ -63,7 +74,7 @@ const MagazineMode = ({
                   visible={visible}
                   isTransparent={isReloading}
                 />
-                {specialMagazine && (
+                {specialMangas.length > 0 && specialMagazine && (
                   <div className="mt-4">
                     <MagazineModeContents
                       key={`${specialMagazine.id}-duplicate`}

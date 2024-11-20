@@ -13,7 +13,7 @@ const SeriesMode = ({ mangaList }: { mangaList: mangaList }) => {
   return (
     <>
       <ViewToggle
-        label="冊数順に表示"
+        label="所持数順に表示"
         checked={sortByCount}
         onChange={handleToggle} // useSeriesModeViewのhandleToggleを使用
       />
@@ -35,8 +35,8 @@ const SeriesMode = ({ mangaList }: { mangaList: mangaList }) => {
           <div
             key={manga.id}
             style={{
-              opacity: isReloading ? 0 : 1, // 透明化制御
-              transition: "opacity 0.5s ease", // フェード効果
+              opacity: isReloading ? 0 : 1,
+              transition: "opacity 0.5s ease",
             }}
             className={`transition-opacity ${
               sortByCount

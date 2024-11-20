@@ -25,7 +25,7 @@ const SerializedMode = ({
   return (
     <>
       <ViewToggle
-        label="冊数順に表示"
+        label="所持数順に表示"
         checked={sortByCount}
         onChange={handleToggle}
       />

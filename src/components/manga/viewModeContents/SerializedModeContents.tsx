@@ -25,21 +25,20 @@ const SerializedModeContents = ({
         {title}（{mangaList.length}作品）
       </h3>
       {[...mangaList]
-        .sort(
-          (a, b) =>
-            sortByCount
-              ? b.covers.length - a.covers.length // 冊数順
-              : (a.covers[0].title || "").localeCompare(
-                  b.covers[0].title || "",
-                  "ja"
-                ) // タイトル順
+        .sort((a, b) =>
+          sortByCount
+            ? b.covers.length - a.covers.length
+            : (a.covers[0].title || "").localeCompare(
+                b.covers[0].title || "",
+                "ja"
+              )
         )
         .map((manga) => (
           <div
             key={manga.id}
             style={{
-              opacity: isReloading ? 0 : 1, // リロード中は透明度を調整
-              transition: "opacity 0.3s ease", // スムーズな切り替え
+              opacity: isReloading ? 0 : 1,
+              transition: "opacity 0.3s ease",
             }}
             className={`transition-opacity ${
               sortByCount

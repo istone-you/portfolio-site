@@ -27,8 +27,8 @@ const MagazineMode = ({
       {magazineList
         .filter(
           (magazine) =>
-            !magazineList.some(
-              (m) => m.specialNumber && m.specialNumber.id === magazine.id
+            !magazineList.some((m) =>
+              m.group?.some((group) => group.id === magazine.id)
             )
         )
         .map((magazine) => {
@@ -44,58 +44,57 @@ const MagazineMode = ({
             return belongsToMagazine && matchesSerialized;
           });
 
-          const specialMagazine =
-            magazine.specialNumber &&
-            magazineList.find(
-              (special) => special.id === magazine.specialNumber.id
-            );
-          const specialMangas = mangaList.filter((manga) => {
-            const currentMagazine =
-              filterSerialized && manga.is_transferred
-                ? manga.is_transferred
-                : manga.magazine;
+          const groupMagazines =
+            magazine.group?.map((group) =>
+              magazineList.find((mag) => mag.id === group.id)
+            ) || [];
 
-            return (
-              currentMagazine?.id === magazine.specialNumber?.id &&
-              (!filterSerialized || manga.is_serialized)
-            );
-          });
+          const groupMangas = groupMagazines
+            .map((groupMagazine) => ({
+              groupMagazine,
+              mangas: mangaList.filter((manga) => {
+                const currentMagazine =
+                  filterSerialized && manga.is_transferred
+                    ? manga.is_transferred
+                    : manga.magazine;
+
+                return (
+                  currentMagazine?.id === groupMagazine?.id &&
+                  (!filterSerialized || manga.is_serialized)
+                );
+              }),
+            }))
+            .filter(({ mangas }) => mangas.length > 0); // mangasが空のgroupを除外
 
           return (
             filteredMangas.length > 0 && (
-              <div
-                key={magazine.id}
-                className="w-full mb-4 py-8 content-card max-w-3xl px-10"
-              >
-                <MagazineModeContents
+              <>
+                <h3 className="text-center text-base font-semibold mt-8">
+                  {magazine.label}
+                </h3>
+                <div
                   key={magazine.id}
-                  magazine={magazine}
-                  mangas={filteredMangas}
-                  visible={visible}
-                  isTransparent={isReloading}
-                />
-                {specialMangas.length > 0 && specialMagazine && (
-                  <div className="mt-4">
-                    <MagazineModeContents
-                      key={`${specialMagazine.id}-duplicate`}
-                      magazine={specialMagazine}
-                      mangas={mangaList.filter((manga) => {
-                        const currentMagazine =
-                          filterSerialized && manga.is_transferred
-                            ? manga.is_transferred
-                            : manga.magazine;
-
-                        return (
-                          currentMagazine?.id === specialMagazine.id &&
-                          (!filterSerialized || manga.is_serialized)
-                        );
-                      })}
-                      visible={visible}
-                      isTransparent={isReloading}
-                    />
-                  </div>
-                )}
-              </div>
+                  className="w-full mb-4 py-14 content-card max-w-3xl px-10"
+                >
+                  <MagazineModeContents
+                    key={magazine.id}
+                    magazine={magazine}
+                    mangas={filteredMangas}
+                    visible={visible}
+                    isTransparent={isReloading}
+                  />
+                  {groupMangas.map(({ groupMagazine, mangas }) => (
+                    <div key={`${groupMagazine?.id}-group`} className="mt-6">
+                      <MagazineModeContents
+                        magazine={groupMagazine || null}
+                        mangas={mangas}
+                        visible={visible}
+                        isTransparent={isReloading}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </>
             )
           );
         })}
@@ -117,15 +116,18 @@ const MagazineMode = ({
           return belongsToMagazine && matchesSerialized;
         });
         return (
-          <div className="w-full mb-4 py-8 content-card max-w-3xl px-10">
-            <MagazineModeContents
-              key="others"
-              magazine={null}
-              mangas={otherMangas}
-              visible={visible}
-              isTransparent={isReloading}
-            />
-          </div>
+          <>
+            <h3 className="text-center text-base font-semibold">その他</h3>
+            <div className="w-full mb-4 py-8 content-card max-w-3xl px-10">
+              <MagazineModeContents
+                key="others"
+                magazine={null}
+                mangas={otherMangas}
+                visible={visible}
+                isTransparent={isReloading}
+              />
+            </div>
+          </>
         );
       })()}
     </div>

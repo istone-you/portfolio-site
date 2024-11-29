@@ -17,7 +17,7 @@ const MagazineModeContents = ({
 }) => (
   <>
     <div className="flex justify-center items-center mb-4">
-      {magazine ? (
+      {magazine && (
         <Image
           src={magazine.logo.url}
           alt={magazine.name}
@@ -31,8 +31,6 @@ const MagazineModeContents = ({
             transformOrigin: "center",
           }}
         />
-      ) : (
-        <h3 className="text-center text-lg font-semibold">その他</h3>
       )}
     </div>
     {/* {magazine?.id == "grand-jump" && (

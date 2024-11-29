@@ -18,9 +18,12 @@ export interface Magazine {
   logo: {
     url: string;
   };
-  specialNumber: {
-    id: string;
-  };
+  label: string;
+  group: [
+    {
+      id: string;
+    }
+  ];
 }
 
 export type mangaList = Manga[];

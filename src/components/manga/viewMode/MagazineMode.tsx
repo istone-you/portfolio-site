@@ -69,12 +69,9 @@ const MagazineMode = ({
           return (
             filteredMangas.length > 0 && (
               <>
-                <h3 className="text-center text-base font-semibold mt-8">
-                  {magazine.label}
-                </h3>
                 <div
                   key={magazine.id}
-                  className="w-full mb-4 py-14 content-card max-w-3xl px-10"
+                  className="w-full mb-8 py-14 content-card max-w-3xl px-10"
                 >
                   <MagazineModeContents
                     key={magazine.id}

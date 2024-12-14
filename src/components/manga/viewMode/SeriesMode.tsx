@@ -25,10 +25,7 @@ const SeriesMode = ({ mangaList }: { mangaList: mangaList }) => {
           if (sortByCount) {
             return b.covers.length - a.covers.length; // 冊数順
           } else {
-            return (a.covers[0].title || "").localeCompare(
-              b.covers[0].title || "",
-              "ja"
-            ); // タイトル順
+            return (a.title || "").localeCompare(b.title || "", "ja"); // タイトル順
           }
         })
         .map((manga) => (

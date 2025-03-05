@@ -24,6 +24,10 @@ const MagazineMode = ({
         checked={filterSerialized}
         onChange={handleToggle}
       />
+      <p className="text-center text-sm text-gray-500">
+        ※
+        休刊した雑誌で連載していた作品は、移籍・合併後の雑誌にカテゴライズしています。
+      </p>
       {magazineList
         .filter(
           (magazine) =>

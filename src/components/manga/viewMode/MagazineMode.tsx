@@ -75,7 +75,7 @@ const MagazineMode = ({
               <>
                 <div
                   key={magazine.id}
-                  className="w-full mb-8 py-14 content-card max-w-3xl px-10"
+                  className="w-full mb-8 py-14 content-card max-w-3xl sm:px-10 px-4"
                 >
                   <MagazineModeContents
                     key={magazine.id}
@@ -119,7 +119,7 @@ const MagazineMode = ({
         return (
           <>
             <h3 className="text-center text-base font-semibold">その他</h3>
-            <div className="w-full mb-4 py-8 content-card max-w-3xl px-10">
+            <div className="w-full mb-4 py-8 content-card max-w-3xl sm:px-10 px-4">
               <MagazineModeContents
                 key="others"
                 magazine={null}

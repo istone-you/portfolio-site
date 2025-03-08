@@ -118,8 +118,8 @@ const MagazineMode = ({
         });
         return (
           <>
-            <h3 className="text-center text-base font-semibold">その他</h3>
             <div className="w-full mb-4 py-8 content-card max-w-3xl sm:px-10 px-4">
+              <h3 className="text-center text-base font-semibold">その他</h3>
               <MagazineModeContents
                 key="others"
                 magazine={null}
